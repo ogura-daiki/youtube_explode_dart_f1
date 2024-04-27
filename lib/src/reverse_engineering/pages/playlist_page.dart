@@ -57,8 +57,10 @@ class PlaylistPage extends YoutubePage<_InitialData> {
   static Future<PlaylistPage> get(
     YoutubeHttpClient httpClient,
     String id,
+    String lang,
   ) async {
-    final url = 'https://www.youtube.com/playlist?list=$id&hl=en&persist_hl=1';
+    final url =
+        'https://www.youtube.com/playlist?list=$id&hl=$lang&persist_hl=1';
     return retry(httpClient, () async {
       final raw = await httpClient.getString(url);
       final page = PlaylistPage.parse(raw, id);
