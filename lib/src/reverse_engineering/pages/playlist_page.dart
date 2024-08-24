@@ -280,7 +280,7 @@ class _Video {
 
   String? get _videoInfo => root
       .get('videoInfo')
-      ?.getT<List<dynamic>>('runs')!
-      .cast<Map<dynamic, dynamic>>()
+      ?.getT<List<dynamic>>('runs')
+      ?.cast<Map<dynamic, dynamic>>()
       .parseRuns();
 }
