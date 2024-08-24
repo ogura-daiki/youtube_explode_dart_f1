@@ -47,14 +47,12 @@ enum VideoIdData {
     withBrokenClosedCaptions,
   ];
 
-  // Videos whose streams can be fetched.
-  static const playable = [
+  // Videos that have a viewable watch page without any restriction.
+  static const validWatchpage = [
     normal,
     unlisted,
     embedRestrictedByYouTube,
     embedRestrictedByAuthor,
-    ageRestrictedViolent,
-    ageRestrictedSexual,
     ageRestrictedEmbedRestricted,
     liveStreamRecording,
     withBrokenTitle,
@@ -63,6 +61,13 @@ enum VideoIdData {
     withHighDynamicRangeStreams,
     withClosedCaptions,
     withBrokenClosedCaptions,
+  ];
+
+  // Videos whose streams can be fetched.
+  static const playable = [
+    ...VideoIdData.validWatchpage,
+    ageRestrictedViolent,
+    ageRestrictedSexual,
   ];
 
   // Cannot fetch metadata or streams.

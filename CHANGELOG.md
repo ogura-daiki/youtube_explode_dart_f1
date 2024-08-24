@@ -1,3 +1,6 @@
+## 2.2.1
+- Implement `VideoClient.get` to fetch a list of related videos given another Video.
+
 ## 2.2.0
 - Implement shorts filter. Thanks to @igormidev #269.
 - Implement `AudioTrack`s in `StreamInfo` to find the language of an audio track.
