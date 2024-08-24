@@ -269,7 +269,14 @@ class _Video {
       _videoInfo?.split('•').elementAtSafe(0)?.stripNonDigits().parseInt() ??
       0;
 
-  String? get uploadDateRaw => _videoInfo?.split('•').elementAtSafe(1);
+  String? get uploadDateRaw {
+    final startTime = root.get("upcomingEventData")?.getT<String>("startTime");
+    if (startTime != null) {
+      return DateTime.fromMillisecondsSinceEpoch(int.parse(startTime) * 1000)
+          .toString();
+    }
+    return _videoInfo?.split('•').elementAtSafe(1);
+  }
 
   String? get _videoInfo => root
       .get('videoInfo')
