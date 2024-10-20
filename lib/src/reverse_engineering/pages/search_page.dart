@@ -117,8 +117,7 @@ class _InitialData extends InitialData {
 
   // Contains only [SearchVideo] or [SearchPlaylist]
   late final List<SearchResult> searchContent =
-      getContentContext()?.map(_parseContent).nonNulls.toList() ??
-          const [];
+      getContentContext()?.map(_parseContent).nonNulls.toList() ?? const [];
 
   List<SearchResult> get relatedVideos =>
       getContentContext()
@@ -242,7 +241,8 @@ class _InitialData extends InitialData {
                 .parseInt() ??
             -1,
         (renderer.get('thumbnail')?.getList('thumbnails') ?? const [])
-            .map((e) => Thumbnail(Uri.parse('https:${e['url']}'), e['height'], e['width']))
+            .map((e) => Thumbnail(
+                Uri.parse('https:${e['url']}'), e['height'], e['width']))
             .toList(),
       );
     }
