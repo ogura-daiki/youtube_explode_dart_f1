@@ -1,3 +1,9 @@
+## 2.3.6
+
+## 2.3.5
+- Deprecated `YoutubeApiClient.tvSimpleEmbedded`.
+- Improve JSEngine
+
 ## 2.3.4
 - Better HLS support
 
