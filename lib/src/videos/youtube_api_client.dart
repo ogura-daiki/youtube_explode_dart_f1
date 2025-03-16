@@ -17,19 +17,20 @@ class YoutubeApiClient {
       };
 
   /// Has limited streams but doesn't require signature deciphering.
-  static const ios = YoutubeApiClient({
+  static final ios = YoutubeApiClient({
     'context': {
       'client': {
         'clientName': 'IOS',
-        'clientVersion': '19.29.1',
+        'clientVersion': '19.45.4',
         'deviceMake': 'Apple',
         'deviceModel': 'iPhone16,2',
         'hl': 'en',
-        'osName': 'iPhone',
-        'osVersion': '17.5.1.21F90',
+        "platform": "MOBILE",
+        'osName': 'IOS',
+        'osVersion': '18.1.0.22B83',
         'timeZone': 'UTC',
         'userAgent':
-            'com.google.ios.youtube/19.29.1 (iPhone16,2; U; CPU iOS 17_5_1 like Mac OS X;)',
+            'com.google.ios.youtube/19.45.4 (iPhone16,2; U; CPU iOS 18_1_0 like Mac OS X; US)',
         'gl': 'US',
         'utcOffsetMinutes': 0
       }
@@ -70,6 +71,23 @@ class YoutubeApiClient {
     },
   }, 'https://music.youtube.com/youtubei/v1/player?key=AIzaSyAOghZGza2MQSZkY_zfZ370N-PUdXEo8AI&prettyPrint=false');
 
+  /// Provides high quality videos (not only VR).
+  static const androidVr = YoutubeApiClient({
+    'context': {
+      'client': {
+        'clientName': 'ANDROID_VR',
+        'clientVersion': '1.56.21',
+        'deviceModel': 'Quest 3',
+        'osVersion': '12',
+        'osName': 'Android',
+        'androidSdkVersion': '32',
+        'hl': 'en',
+        'timeZone': 'UTC',
+        'utcOffsetMinutes': 0,
+      },
+    },
+  }, 'https://www.youtube.com/youtubei/v1/player?prettyPrint=false');
+
   /// This client also provide high quality muxed stream in the HLS manifest.
   /// The streams are in m3u8 format.
   static const safari = YoutubeApiClient({
@@ -108,23 +126,6 @@ class YoutubeApiClient {
         'Content-Type': 'application/json',
         'Origin': 'https://www.youtube.com',
       });
-
-  /// Provides high quality videos (not only VR).
-  static const androidVr = YoutubeApiClient({
-    'context': {
-      'client': {
-        'clientName': 'ANDROID_VR',
-        'clientVersion': '1.56.21',
-        'deviceModel': 'Quest 3',
-        'osVersion': '12',
-        'osName': 'Android',
-        'androidSdkVersion': '32',
-        'hl': 'en',
-        'timeZone': 'UTC',
-        'utcOffsetMinutes': 0,
-      },
-    },
-  }, 'https://www.youtube.com/youtubei/v1/player?prettyPrint=false');
 
   static const mediaConnect = YoutubeApiClient({
     'context': {
