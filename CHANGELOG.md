@@ -1,3 +1,19 @@
+## 2.5.1
+- Fix related videos api.
+
+## 2.5.0
+- Implement new function decipherer.
+- Fix bug preventing fetching more than 100 videos in a playlist. Thanks to @khaled-0
+- Expose header getter to `YoutubeHttpClient`. Thanks to @khaled-0
+
+
+## 2.4.2
+- Update safari client.
+- Fix signature deciphering.
+
+## 2.4.1
+- Update IOS client.
+
 ## 2.4.0
 - Update IOS client.
 - Implement visitor data extraction. Port from: https://github.com/Tyrrrz/YoutubeExplode/commit/84e29bb
