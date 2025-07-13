@@ -1,6 +1,7 @@
 import '../channels/channel_id.dart';
 import '../common/common.dart';
 import '../extensions/helpers_extension.dart';
+import '../reverse_engineering/models/page_language.dart';
 import '../reverse_engineering/pages/playlist_page.dart';
 import '../reverse_engineering/youtube_http_client.dart';
 import '../videos/video.dart';
@@ -16,7 +17,8 @@ class PlaylistClient {
   PlaylistClient(this._httpClient);
 
   /// Gets the metadata associated with the specified playlist.
-  Future<Playlist> get(dynamic id, [String lang = "en"]) async {
+  Future<Playlist> get(dynamic id,
+      [PageLanguage lang = PageLanguage.en]) async {
     id = PlaylistId.fromString(id);
 
     final response =
@@ -33,7 +35,8 @@ class PlaylistClient {
   }
 
   /// Enumerates videos included in the specified playlist.
-  Stream<Video> getVideos(dynamic id, [String lang = "en"]) async* {
+  Stream<Video> getVideos(dynamic id,
+      [PageLanguage lang = PageLanguage.en]) async* {
     id = PlaylistId.fromString(id);
     final encounteredVideoIds = <String>{};
     var prevLength = 0;
@@ -57,7 +60,7 @@ class PlaylistClient {
           video.title,
           video.author,
           ChannelId(video.channelId),
-          video.uploadDateRaw.toDateTime(),
+          video.uploadDateRaw.toDateTime(lang),
           video.uploadDateRaw,
           null,
           video.description,

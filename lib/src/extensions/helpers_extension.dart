@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 
+import '../reverse_engineering/models/page_language.dart';
+import 'subtract_time_parser/subtract_time_parser.dart';
+
 typedef JsonMap = Map<String, dynamic>;
 
 /// Utility for Strings.
@@ -167,7 +170,7 @@ extension StringUtility2 on String? {
   }
 
   /// Format: {quantity} {unit} ago (5 years ago)
-  DateTime? toDateTime() {
+  DateTime? toDateTime([PageLanguage lang = PageLanguage.en]) {
     if (this == null) {
       return null;
     }
@@ -187,17 +190,7 @@ extension StringUtility2 on String? {
     // Try to get the unit
     final unit = parts[1];
 
-    final time = switch (unit) {
-      _ when unit.startsWith('second') => Duration(seconds: qty),
-      _ when unit.startsWith('minute') => Duration(minutes: qty),
-      _ when unit.startsWith('hour') => Duration(hours: qty),
-      _ when unit.startsWith('day') => Duration(days: qty),
-      _ when unit.startsWith('week') => Duration(days: qty * 7),
-      _ when unit.startsWith('month') => Duration(days: qty * 30),
-      _ when unit.startsWith('year') => Duration(days: qty * 365),
-      _ => throw StateError("Couldn't parse $unit unit of time. "
-          'Please report this to the project page!')
-    };
+    final time = SubtractTimeParser(lang).parse(qty, unit);
 
     return DateTime.now().subtract(time);
   }

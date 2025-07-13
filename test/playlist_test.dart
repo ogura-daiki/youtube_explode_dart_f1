@@ -1,4 +1,5 @@
 import 'package:test/test.dart';
+import 'package:youtube_explode_dart/src/reverse_engineering/models/page_language.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 void main() {
@@ -14,7 +15,8 @@ void main() {
   test('Get metadata of a playlist', () async {
     const playlistUrl =
         'https://www.youtube.com/playlist?list=PLxTcxOtc5WIPFIyrYAvGqGhfAOmKJB0V3';
-    final playlist = await yt!.playlists.get(PlaylistId(playlistUrl));
+    final playlist =
+        await yt!.playlists.get(PlaylistId(playlistUrl), PageLanguage.jaJP);
     expect(playlist.id.value, 'PLxTcxOtc5WIPFIyrYAvGqGhfAOmKJB0V3');
     expect(playlist.url, playlistUrl);
     expect(playlist.title, 'Tutorial');
@@ -39,7 +41,7 @@ void main() {
       PlaylistId('PL601B2E69B03FAB9D'),
     }) {
       test('PlaylistID - ${val.value}', () async {
-        final playlist = await yt!.playlists.get(val);
+        final playlist = await yt!.playlists.get(val, PageLanguage.jaJP);
         expect(playlist.id.value, val.value);
       });
     }
@@ -51,6 +53,7 @@ void main() {
           PlaylistId(
             'https://www.youtube.com/playlist?list=PLUpIWHnoHbGwSEJlDFpo9c5v3wk2DXLqo',
           ),
+          PageLanguage.jaJP,
         )
         .toList();
     expect(videos.length, greaterThan(100));
@@ -67,14 +70,16 @@ void main() {
       PlaylistId('PL601B2E69B03FAB9D'),
     }) {
       test('PlaylistID - ${val.value}', () async {
-        expect(yt!.playlists.getVideos(val), emits(isNotNull));
+        expect(
+            yt!.playlists.getVideos(val, PageLanguage.jaJP), emits(isNotNull));
       });
     }
   });
 
   test('Get videos of YT music playlist', () async {
     final videos = await yt!.playlists
-        .getVideos('RDCLAK5uy_m9Rw_g5eCJtMhuRgP1eqU3H-XW7UL6uWQ')
+        .getVideos(
+            'RDCLAK5uy_m9Rw_g5eCJtMhuRgP1eqU3H-XW7UL6uWQ', PageLanguage.jaJP)
         .toList();
     expect(videos.length, greaterThan(100));
   });

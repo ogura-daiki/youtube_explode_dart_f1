@@ -5,6 +5,7 @@ import '../../../youtube_explode_dart.dart';
 import '../../extensions/helpers_extension.dart';
 import '../../retry.dart';
 import '../models/initial_data.dart';
+import '../models/page_language.dart';
 import '../models/youtube_page.dart';
 import '../youtube_http_client.dart';
 
@@ -57,10 +58,10 @@ class PlaylistPage extends YoutubePage<_InitialData> {
   static Future<PlaylistPage> get(
     YoutubeHttpClient httpClient,
     String id,
-    String lang,
+    PageLanguage lang,
   ) async {
     final url =
-        'https://www.youtube.com/playlist?list=$id&hl=$lang&persist_hl=1';
+        'https://www.youtube.com/playlist?list=$id&hl=${lang.text}&persist_hl=1';
     return retry(httpClient, () async {
       final raw = await httpClient.getString(url);
       final page = PlaylistPage.parse(raw, id);
