@@ -1,7 +1,7 @@
 import '../channels/channel_id.dart';
 import '../common/common.dart';
 import '../extensions/helpers_extension.dart';
-import '../reverse_engineering/models/page_language.dart';
+import '../common/page_language.dart';
 import '../reverse_engineering/pages/playlist_page.dart';
 import '../reverse_engineering/youtube_http_client.dart';
 import '../videos/video.dart';

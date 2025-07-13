@@ -1,4 +1,4 @@
-import '../../reverse_engineering/models/page_language.dart';
+import '../../common/page_language.dart';
 import 'implementation/en.dart';
 import 'implementation/jaJP.dart';
 import 'interface/interface.dart';

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 
-import '../reverse_engineering/models/page_language.dart';
+import '../common/page_language.dart';
 import 'subtract_time_parser/subtract_time_parser.dart';
 
 typedef JsonMap = Map<String, dynamic>;

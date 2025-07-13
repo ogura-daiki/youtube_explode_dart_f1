@@ -5,7 +5,7 @@ import '../../../youtube_explode_dart.dart';
 import '../../extensions/helpers_extension.dart';
 import '../../retry.dart';
 import '../models/initial_data.dart';
-import '../models/page_language.dart';
+import '../../common/page_language.dart';
 import '../models/youtube_page.dart';
 import '../youtube_http_client.dart';
 

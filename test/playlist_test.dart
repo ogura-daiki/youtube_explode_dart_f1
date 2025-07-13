@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:youtube_explode_dart/src/reverse_engineering/models/page_language.dart';
+import 'package:youtube_explode_dart/src/common/page_language.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 void main() {
