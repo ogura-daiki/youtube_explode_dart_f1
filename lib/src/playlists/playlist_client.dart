@@ -18,7 +18,7 @@ class PlaylistClient {
 
   /// Gets the metadata associated with the specified playlist.
   Future<Playlist> get(dynamic id,
-      [PageLanguage lang = PageLanguage.en]) async {
+      [PageLanguage lang = PageLanguage.enUS]) async {
     id = PlaylistId.fromString(id);
 
     final response =
@@ -36,7 +36,7 @@ class PlaylistClient {
 
   /// Enumerates videos included in the specified playlist.
   Stream<Video> getVideos(dynamic id,
-      [PageLanguage lang = PageLanguage.en]) async* {
+      [PageLanguage lang = PageLanguage.enUS]) async* {
     id = PlaylistId.fromString(id);
     final encounteredVideoIds = <String>{};
     var prevLength = 0;

@@ -170,7 +170,7 @@ extension StringUtility2 on String? {
   }
 
   /// Format: {quantity} {unit} ago (5 years ago)
-  DateTime? toDateTime([PageLanguage lang = PageLanguage.en]) {
+  DateTime? toDateTime([PageLanguage lang = PageLanguage.enUS]) {
     if (this == null) {
       return null;
     }

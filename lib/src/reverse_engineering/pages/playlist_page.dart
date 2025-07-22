@@ -35,7 +35,7 @@ class PlaylistPage extends YoutubePage<_InitialData> {
 
   ///
   Future<PlaylistPage?> nextPage(YoutubeHttpClient httpClient,
-      [PageLanguage lang = PageLanguage.en]) async {
+      [PageLanguage lang = PageLanguage.enUS]) async {
     if (initialData.continuationToken?.isEmpty ?? true) {
       return null;
     }

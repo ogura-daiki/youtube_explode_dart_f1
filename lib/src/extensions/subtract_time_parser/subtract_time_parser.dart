@@ -11,7 +11,7 @@ class SubtractTimeParser extends SubtractTimeParserInterface {
   Duration parse(int qty, String unit) {
     try {
       return switch (language) {
-        PageLanguage.en => En().parse(qty, unit),
+        PageLanguage.enUS => En().parse(qty, unit),
         PageLanguage.jaJP => JaJP().parse(qty, unit),
       };
     } catch (e) {

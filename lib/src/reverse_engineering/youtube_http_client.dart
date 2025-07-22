@@ -287,7 +287,7 @@ class YoutubeHttpClient extends http.BaseClient {
     String action,
     String token, {
     Map<String, String>? headers,
-    PageLanguage lang = PageLanguage.en,
+    PageLanguage lang = PageLanguage.enUS,
   }) async =>
       sendPost(action, {'continuation': token}, headers: headers, lang: lang);
 
@@ -296,7 +296,7 @@ class YoutubeHttpClient extends http.BaseClient {
     String action,
     Map<String, dynamic> data, {
     Map<String, String>? headers,
-    PageLanguage lang = PageLanguage.en,
+    PageLanguage lang = PageLanguage.enUS,
   }) {
     assert(action == 'next' || action == 'browse' || action == 'search');
 
