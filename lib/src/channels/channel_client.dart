@@ -128,10 +128,11 @@ class ChannelClient {
 
   /// Enumerates videos uploaded by the specified channel.
   /// If you want a full list of uploads see [getUploadsFromPage]
-  Stream<Video> getUploads(dynamic channelId) {
+  Stream<Video> getUploads(dynamic channelId,
+      [PageLanguage lang = PageLanguage.enUS]) {
     channelId = ChannelId.fromString(channelId);
     final playlistId = 'UU${(channelId.value as String).substringAfter('UC')}';
-    return PlaylistClient(_httpClient).getVideos(PlaylistId(playlistId));
+    return PlaylistClient(_httpClient).getVideos(PlaylistId(playlistId), lang);
   }
 
   /// Enumerates videos uploaded by the specified channel.
