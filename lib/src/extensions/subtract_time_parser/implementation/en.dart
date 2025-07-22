@@ -3,7 +3,6 @@ import '../interface/interface.dart';
 class En extends SubtractTimeParserInterface {
   @override
   Duration parse(int qty, String unit) {
-    print("$qty $unit");
     return switch (unit) {
       _ when unit.startsWith('second') => Duration(seconds: qty),
       _ when unit.startsWith('minute') => Duration(minutes: qty),

@@ -5,6 +5,7 @@ import 'package:collection/collection.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 
+import '../common/common.dart';
 import '../exceptions/exceptions.dart';
 import '../extensions/helpers_extension.dart';
 import '../retry.dart';
@@ -286,12 +287,17 @@ class YoutubeHttpClient extends http.BaseClient {
     String action,
     String token, {
     Map<String, String>? headers,
+    PageLanguage lang = PageLanguage.en,
   }) async =>
-      sendPost(action, {'continuation': token}, headers: headers);
+      sendPost(action, {'continuation': token}, headers: headers, lang: lang);
 
   /// Sends a call to the youtube api endpoint.
-  Future<JsonMap> sendPost(String action, Map<String, dynamic> data,
-      {Map<String, String>? headers}) {
+  Future<JsonMap> sendPost(
+    String action,
+    Map<String, dynamic> data, {
+    Map<String, String>? headers,
+    PageLanguage lang = PageLanguage.en,
+  }) {
     assert(action == 'next' || action == 'browse' || action == 'search');
 
     final url = Uri.parse(
@@ -299,8 +305,9 @@ class YoutubeHttpClient extends http.BaseClient {
     );
 
     final body = {
-      'context': const {
+      'context': {
         'client': {
+          ...(lang.payloadPart),
           'browserName': 'Chrome',
           'browserVersion': '105.0.0.0',
           'clientFormFactor': 'UNKNOWN_FORM_FACTOR',

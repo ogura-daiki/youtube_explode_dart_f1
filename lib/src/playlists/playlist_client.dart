@@ -75,7 +75,7 @@ class PlaylistClient {
         break;
       }
       prevLength = encounteredVideoIds.length;
-      page = await page.nextPage(_httpClient);
+      page = await page.nextPage(_httpClient, lang);
     }
   }
 }

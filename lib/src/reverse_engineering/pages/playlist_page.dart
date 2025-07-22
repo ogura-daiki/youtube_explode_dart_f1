@@ -34,13 +34,14 @@ class PlaylistPage extends YoutubePage<_InitialData> {
       : super.fromInitialData(initialData);
 
   ///
-  Future<PlaylistPage?> nextPage(YoutubeHttpClient httpClient) async {
+  Future<PlaylistPage?> nextPage(YoutubeHttpClient httpClient,
+      [PageLanguage lang = PageLanguage.en]) async {
     if (initialData.continuationToken?.isEmpty ?? true) {
       return null;
     }
 
     final data = await httpClient.sendContinuation(
-        'browse', initialData.continuationToken!, headers: {
+        'browse', initialData.continuationToken!, lang: lang, headers: {
       'x-youtube-client-name': '1',
       'x-goog-visitor-id': _visitorData ?? ''
     });

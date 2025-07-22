@@ -3,7 +3,6 @@ import '../interface/interface.dart';
 class JaJP extends SubtractTimeParserInterface {
   @override
   Duration parse(int qty, String unit) {
-    print("$qty $unit");
     return switch (unit) {
       _ when unit.startsWith('秒') => Duration(seconds: qty),
       _ when unit.startsWith('分') => Duration(minutes: qty),

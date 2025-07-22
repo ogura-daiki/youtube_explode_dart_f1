@@ -7,4 +7,9 @@ enum PageLanguage {
         en => "en",
         jaJP => "ja-JP",
       };
+
+  Map<String, String> get payloadPart => switch (this) {
+        en => {},
+        jaJP => {"hl": "ja", "gl": "JP"},
+      };
 }
