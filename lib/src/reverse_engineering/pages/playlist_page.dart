@@ -87,126 +87,114 @@ class PlaylistPage extends YoutubePage<_InitialData> {
 class _InitialData extends InitialData {
   _InitialData(super.root);
 
-  String? get visitorData => root
-      .get('responseContext')
-      ?.get('webResponseContextExtensionData')
-      ?.get('ytConfigData')
-      ?.getT<String>('visitorData');
+  String? get visitorData => root.getJson<String>(
+      'responseContext/webResponseContextExtensionData/ytConfigData/visitorData');
 
-  String? get browseId => root
-      .get('responseContext')
-      ?.getList('serviceTrackingParams')
-      ?.firstWhereOrNull((e) => e['service'] == 'GFEEDBACK')
-      ?.getList('params')
-      ?.firstWhereOrNull((e) => e['key'] == 'browse_id')
-      ?.getT<String>('value');
+  String? get browseId {
+    final params = root.getJson<List<dynamic>>(
+      'responseContext/serviceTrackingParams',
+    );
+    final gfeedback = params
+        ?.firstWhereOrNull((e) => e['service'] == 'GFEEDBACK') as JsonMap?;
+    final paramList = gfeedback?.getJson<List<dynamic>>('params');
+    final browseIdParam =
+        paramList?.firstWhereOrNull((e) => e['key'] == 'browse_id') as JsonMap?;
+    return browseIdParam?.getT<String>('value');
+  }
 
   bool get exists =>
-      root
-          .getList('alerts')
-          ?.firstOrNull
-          ?.get('alertRenderer')
-          ?.getT<String>('type') !=
-      'ERROR';
+      root.getJson<String>('alerts/0/alertRenderer/type') != 'ERROR';
 
-  late final String? title = root
-      .get('metadata')
-      ?.get('playlistMetadataRenderer')
-      ?.getT<String>('title');
+  late final String? title =
+      root.getJson<String>('metadata/playlistMetadataRenderer/title');
 
-  late final String? author = root
-      .get('sidebar')
-      ?.get('playlistSidebarRenderer')
-      ?.getList('items')
-      ?.elementAtSafe(1)
-      ?.get('playlistSidebarSecondaryInfoRenderer')
-      ?.get('videoOwner')
-      ?.get('videoOwnerRenderer')
-      ?.get('title')
-      ?.getT<List<dynamic>>('runs')
+  late final String? author = (root
+          .getJson<List<dynamic>>('sidebar/playlistSidebarRenderer/items')
+          ?.elementAtSafe(1) as JsonMap?)
+      ?.getJson<List<dynamic>>(
+        'playlistSidebarSecondaryInfoRenderer/videoOwner/videoOwnerRenderer/title/runs',
+      )
       ?.cast<Map<dynamic, dynamic>>()
       .parseRuns();
 
-  late final String? description = root
-      .get('metadata')
-      ?.get('playlistMetadataRenderer')
-      ?.getT<String>('description');
+  late final String? description =
+      root.getJson<String>('metadata/playlistMetadataRenderer/description');
 
-  late final int? viewCount = root
-      .get('sidebar')
-      ?.get('playlistSidebarRenderer')
-      ?.getList('items')
-      ?.firstOrNull
-      ?.get('playlistSidebarPrimaryInfoRenderer')
-      ?.getList('stats')
-      ?.elementAtSafe(1)
+  late final int? viewCount = ((root
+              .getJson<List<dynamic>>('sidebar/playlistSidebarRenderer/items')
+              ?.firstOrNull as JsonMap?)
+          ?.getJson<List<dynamic>>(
+            'playlistSidebarPrimaryInfoRenderer/stats',
+          )
+          ?.elementAtSafe(1) as JsonMap?)
       ?.getT<String>('simpleText')
       .parseInt();
 
   // sidebar.playlistSidebarRenderer.items[0].playlistSidebarPrimaryInfoRenderer.stats
-  late final int? videoCount = root
-      .get('sidebar')
-      ?.get('playlistSidebarRenderer')
-      ?.getList('items')
-      ?.firstOrNull
-      ?.get('playlistSidebarPrimaryInfoRenderer')
-      ?.getList('stats')
-      ?.elementAtSafe(0)
-      ?.getList('runs')
+  late final int? videoCount = ((root
+              .getJson<List<dynamic>>('sidebar/playlistSidebarRenderer/items')
+              ?.firstOrNull as JsonMap?)
+          ?.getJson<List<dynamic>>('playlistSidebarPrimaryInfoRenderer/stats')
+          ?.elementAtSafe(0) as JsonMap?)
+      ?.getJson<List<dynamic>>('runs')
       ?.firstOrNull
       ?.getT<String>('text')
       .parseInt();
 
   String? get continuationToken {
-    final continuationEndpoint = (videosContent ?? playlistVideosContent)
-        ?.firstWhereOrNull((e) => e['continuationItemRenderer'] != null)
-        ?.get('continuationItemRenderer')
-        ?.get('continuationEndpoint');
+    final continuationItem = (videosContent ?? playlistVideosContent)
+        ?.firstWhereOrNull((e) => e['continuationItemRenderer'] != null);
+    final continuationEndpoint = continuationItem?.getJson<JsonMap>(
+      'continuationItemRenderer/continuationEndpoint',
+    );
 
-    return continuationEndpoint
-            ?.get('continuationCommand')
-            ?.getT<String>('token') ??
-        continuationEndpoint
-            ?.get('commandExecutorCommand')
-            ?.getList('commands')
-            ?.firstWhereOrNull((e) => e['continuationCommand'] != null)
-            ?.get('continuationCommand')
-            ?.getT<String>('token');
+    return continuationEndpoint?.getJson<String>('continuationCommand/token') ??
+        (continuationEndpoint
+                    ?.getJson<List<dynamic>>('commandExecutorCommand/commands')
+                    ?.firstWhereOrNull((e) => e['continuationCommand'] != null)
+                as JsonMap?)
+            ?.getJson<String>('continuationCommand/token');
   }
 
-  List<JsonMap>? get playlistVideosContent =>
-      root
-          .getList('onResponseReceivedActions')
-          ?.firstOrNull
-          ?.get('appendContinuationItemsAction')
-          ?.getList('continuationItems') ??
-      root
-          .get('contents')
-          ?.get('twoColumnBrowseResultsRenderer')
-          ?.getList('tabs')
-          ?.firstOrNull
-          ?.get('tabRenderer')
-          ?.get('content')
-          ?.get('sectionListRenderer')
-          ?.getList('contents')
-          ?.firstOrNull
-          ?.get('itemSectionRenderer')
-          ?.getList('contents')
-          ?.firstOrNull
-          ?.get('playlistVideoListRenderer')
-          ?.getList('contents');
+  List<JsonMap>? get playlistVideosContent {
+    final fromActions = root
+        .getJson<List<dynamic>>('onResponseReceivedActions')
+        ?.firstOrNull as JsonMap?;
+    final continuationItems = fromActions?.getJson<List<dynamic>>(
+      'appendContinuationItemsAction/continuationItems',
+    );
+    if (continuationItems != null) {
+      return continuationItems.cast<JsonMap>();
+    }
+    final tabs = root.getJson<List<dynamic>>(
+      'contents/twoColumnBrowseResultsRenderer/tabs',
+    );
+    final firstTab = tabs?.firstOrNull as JsonMap?;
+    final sectionContents = firstTab?.getJson<List<dynamic>>(
+      'tabRenderer/content/sectionListRenderer/contents',
+    );
+    final firstSection = sectionContents?.firstOrNull as JsonMap?;
+    final itemContents = firstSection?.getJson<List<dynamic>>(
+      'itemSectionRenderer/contents',
+    );
+    final firstItem = itemContents?.firstOrNull as JsonMap?;
+    final contents = firstItem?.getJson<List<dynamic>>(
+      'playlistVideoListRenderer/contents',
+    );
+    return contents?.cast<JsonMap>();
+  }
 
   late final List<JsonMap>? videosContent = root
-          .get('contents')
-          ?.get('twoColumnSearchResultsRenderer')
-          ?.get('primaryContents')
-          ?.get('sectionListRenderer')
-          ?.getList('contents') ??
-      root
-          .getList('onResponseReceivedCommands')
-          ?.firstOrNull
-          ?.get('appendContinuationItemsAction')
-          ?.getList('continuationItems');
+          .getJson<List<dynamic>>(
+            'contents/twoColumnSearchResultsRenderer/primaryContents/sectionListRenderer/contents',
+          )
+          ?.cast<JsonMap>() ??
+      (root.getJson<List<dynamic>>('onResponseReceivedCommands')?.firstOrNull
+              as JsonMap?)
+          ?.getJson<List<dynamic>>(
+            'appendContinuationItemsAction/continuationItems',
+          )
+          ?.cast<JsonMap>();
 
   List<_Video> get playlistVideos =>
       playlistVideosContent
@@ -216,9 +204,8 @@ class _InitialData extends InitialData {
       const [];
 
 /*  List<_Video> get videos =>
-      videosContent?.firstOrNull
-          ?.get('itemSectionRenderer')
-          ?.getList('contents')
+      (videosContent?.firstOrNull as JsonMap?)
+          ?.getJson<List<dynamic>>('itemSectionRenderer/contents')
           ?.where((e) => e['videoRenderer'] != null)
           .map((e) => _Video(e))
           .toList() ??
@@ -235,73 +222,54 @@ class _Video {
 
   String get author =>
       root
-          .get('ownerText')
-          ?.getT<List<dynamic>>('runs')
+          .getJson<List<dynamic>>('ownerText/runs')
           ?.cast<Map<dynamic, dynamic>>()
           .parseRuns() ??
       root
-          .get('shortBylineText')
-          ?.getT<List<dynamic>>('runs')
+          .getJson<List<dynamic>>('shortBylineText/runs')
           ?.cast<Map<dynamic, dynamic>>()
           .parseRuns() ??
       '';
 
   String get channelId {
-    return root
-            .get('ownerText')
-            ?.getList('runs')
-            ?.firstOrNull
-            ?.get('navigationEndpoint')
-            ?.get('browseEndpoint')
-            ?.getT<String>('browseId') ??
-        root
-            .get('shortBylineText')
-            ?.getList('runs')
-            ?.firstOrNull
-            ?.get('navigationEndpoint')
-            ?.get('browseEndpoint')
-            ?.getT<String>('browseId') ??
-        root
-            .get('shortBylineText')
-            ?.getList('runs')
-            ?.firstOrNull
-            ?.get('navigationEndpoint')
-            ?.get('showDialogCommand')
-            ?.get('panelLoadingStrategy')
-            ?.get('inlineContent')
-            ?.get('dialogViewModel')
-            ?.get('customContent')
-            ?.get('listViewModel')
-            ?.getList('listItems')
-            ?.firstOrNull
-            ?.get('listItemViewModel')
-            ?.get('rendererContext')
-            ?.get('commandContext')
-            ?.get('onTap')
-            ?.get('innertubeCommand')
-            ?.get('browseEndpoint')
-            ?.getT<String>('browseId') ??
+    return root.getJson<String>(
+          'ownerText/runs/0/navigationEndpoint/browseEndpoint/browseId',
+        ) ??
+        root.getJson<String>(
+          'shortBylineText/runs/0/navigationEndpoint/browseEndpoint/browseId',
+        ) ??
+        root.getJson<String>(
+          'shortBylineText/runs/0/navigationEndpoint/showDialogCommand/panelLoadingStrategy/inlineContent/dialogViewModel/customContent/listViewModel/listItems/0/listItemViewModel/rendererContext/commandContext/onTap/innertubeCommand/browseEndpoint/browseId',
+        ) ??
         '';
   }
 
-  String get title => root.get('title')?.getList('runs')?.parseRuns() ?? '';
+  String get title =>
+      root
+          .getJson<List<dynamic>>('title/runs')
+          ?.cast<Map<dynamic, dynamic>>()
+          .parseRuns() ??
+      '';
 
   String get description =>
-      root.getList('descriptionSnippet')?.parseRuns() ?? '';
+      root
+          .getJson<List<dynamic>>('descriptionSnippet')
+          ?.cast<Map<dynamic, dynamic>>()
+          .parseRuns() ??
+      '';
 
   Duration? get duration =>
-      root.get('lengthText')?.getT<String>('simpleText')?.toDuration();
+      root.getJson<String>('lengthText/simpleText')?.toDuration();
 
   int get viewCount =>
-      root.get('viewCountText')?.getT<String>('simpleText').parseInt() ??
+      root.getJson<String>('viewCountText/simpleText').parseInt() ??
       _videoInfo?.split('•').elementAtSafe(0)?.stripNonDigits().parseInt() ??
       0;
 
   String? get uploadDateRaw => _videoInfo?.split('•').elementAtSafe(1);
 
   String? get _videoInfo => root
-      .get('videoInfo')
-      ?.getT<List<dynamic>>('runs')!
-      .cast<Map<dynamic, dynamic>>()
+      .getJson<List<dynamic>>('videoInfo/runs')
+      ?.cast<Map<dynamic, dynamic>>()
       .parseRuns();
 }

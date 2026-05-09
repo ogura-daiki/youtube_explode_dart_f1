@@ -1,3 +1,7 @@
+## 3.0.6
+- Code refactoring
+- 
+
 ## 3.0.5
 - Re-add requireWatchPage functionality to `getManifest`.
 - Allow specifying deno path. Thanks to @obemu.
