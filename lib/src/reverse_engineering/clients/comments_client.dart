@@ -73,12 +73,12 @@ onResponseReceivedEndpoints[1].reloadContinuationItemsCommand.continuationItems[
     // This can probably be simplified.
     final cmd = endpoint.getJson<JsonMap>('reloadContinuationItemsCommand') ??
         endpoint.getJson<JsonMap>('appendContinuationItemsAction');
-    final items = cmd
-        ?.getJson<List<dynamic>>('continuationItems') ??
+    final items = cmd?.getJson<List<dynamic>>('continuationItems') ??
         cmd?.getJson<List<dynamic>>('appendContinuationItemsAction');
     return items
             ?.where((e) => e['commentThreadRenderer'] != null)
-            .map((e) => (e as JsonMap).getJson<JsonMap>('commentThreadRenderer')!)
+            .map((e) =>
+                (e as JsonMap).getJson<JsonMap>('commentThreadRenderer')!)
             .toList(growable: false) ??
         const [];
   }
@@ -90,8 +90,9 @@ onResponseReceivedEndpoints[1].reloadContinuationItemsCommand.continuationItems[
     final items = last.getJson<List<dynamic>>(
       'appendContinuationItemsAction/continuationItems',
     );
-    final item = items?.firstWhereOrNull((e) =>
-        e['continuationItemRenderer'] != null) as JsonMap?;
+    final item =
+        items?.firstWhereOrNull((e) => e['continuationItemRenderer'] != null)
+            as JsonMap?;
     final token = item?.getJson<String>(
       'continuationItemRenderer/button/buttonRenderer/command/continuationCommand/token',
     ); /* Used for the replies */
@@ -99,10 +100,11 @@ onResponseReceivedEndpoints[1].reloadContinuationItemsCommand.continuationItems[
 
     final cmd = last.getJson<JsonMap>('reloadContinuationItemsCommand') ??
         last.getJson<JsonMap>('appendContinuationItemsAction');
-    final continuationItems = cmd?.getJson<List<dynamic>>('continuationItems') ??
-        cmd?.getJson<List<dynamic>>('appendContinuationItemsAction');
-    final continuationItem = continuationItems?.firstWhereOrNull((e) =>
-        e['continuationItemRenderer'] != null) as JsonMap?;
+    final continuationItems =
+        cmd?.getJson<List<dynamic>>('continuationItems') ??
+            cmd?.getJson<List<dynamic>>('appendContinuationItemsAction');
+    final continuationItem = continuationItems?.firstWhereOrNull(
+        (e) => e['continuationItemRenderer'] != null) as JsonMap?;
     return continuationItem?.getJson<String>(
       'continuationItemRenderer/continuationEndpoint/continuationCommand/token',
     );
@@ -110,9 +112,9 @@ onResponseReceivedEndpoints[1].reloadContinuationItemsCommand.continuationItems[
 
   // onResponseReceivedEndpoints[0].reloadContinuationItemsCommand.continuationItems[0].commentsHeaderRenderer
   int getCommentsCount() {
-    final firstEndpoint =
-        root.getJson<List<dynamic>>('onResponseReceivedEndpoints')!.first
-            as JsonMap;
+    final firstEndpoint = root
+        .getJson<List<dynamic>>('onResponseReceivedEndpoints')!
+        .first as JsonMap;
     return firstEndpoint
             .getJson<String>(
               'reloadContinuationItemsCommand/continuationItems/0/commentsHeaderRenderer/commentsCount/runs/0/text',
@@ -142,10 +144,9 @@ class _Comment {
       root.getJson<JsonMap>('replies/commentRepliesRenderer');
 
   /// Used to get replies
-  late final String? continuation = _commentRepliesRenderer
-      ?.getJson<String>(
-        'contents/0/continuationItemRenderer/continuationEndpoint/continuationCommand/token',
-      );
+  late final String? continuation = _commentRepliesRenderer?.getJson<String>(
+    'contents/0/continuationItemRenderer/continuationEndpoint/continuationCommand/token',
+  );
 
   late final int? repliesCount = _commentRenderer.getT<int>('replyCount');
 
@@ -165,8 +166,8 @@ class _Comment {
       .cast<Map<dynamic, dynamic>>()
       .parseRuns();
 
-  late final String publishTime = _commentRenderer
-      .getJson<String>('publishedTimeText/runs/0/text')!;
+  late final String publishTime =
+      _commentRenderer.getJson<String>('publishedTimeText/runs/0/text')!;
 
   late final int? likeCount = _commentRenderer
       .getJson<String>('voteCount/simpleText')
@@ -189,8 +190,9 @@ extension _CommentsDataExtension on WatchPageInitialData {
       final contents = root.getJson<List<dynamic>>(
         'contents/twoColumnWatchNextResults/results/results/contents',
       );
-      final section = contents?.lastWhereOrNull((e) =>
-          e['itemSectionRenderer'] != null) as JsonMap?;
+      final section =
+          contents?.lastWhereOrNull((e) => e['itemSectionRenderer'] != null)
+              as JsonMap?;
       final sectionContents =
           section?.getJson<List<dynamic>>('itemSectionRenderer/contents');
       final first = sectionContents?.firstOrNull as JsonMap?;

@@ -203,9 +203,8 @@ class WatchPageInitialData extends InitialData {
       final contents = root.getJson<List<dynamic>>(
         'contents/twoColumnWatchNextResults/results/results/contents',
       );
-      final primaryInfo = contents
-          ?.firstWhereOrNull((e) => e['videoPrimaryInfoRenderer'] != null)
-          as JsonMap?;
+      final primaryInfo = contents?.firstWhereOrNull(
+          (e) => e['videoPrimaryInfoRenderer'] != null) as JsonMap?;
       final topLevelButtons = primaryInfo?.getJson<List<dynamic>>(
         'videoPrimaryInfoRenderer/videoActions/menuRenderer/topLevelButtons',
       );
@@ -214,14 +213,13 @@ class WatchPageInitialData extends InitialData {
         return null;
       }
 
-      final likes = (topLevelButtons.elementAtOrNull(0) as JsonMap?)
-              ?.getJson<String>(
+      final likes =
+          (topLevelButtons.elementAtOrNull(0) as JsonMap?)?.getJson<String>(
                 'segmentedLikeDislikeButtonViewModel/likeButtonViewModel/likeButtonViewModel/toggleButtonViewModel/toggleButtonViewModel/defaultButtonViewModel/buttonViewModel/accessibilityText',
               ) ??
-          (topLevelButtons
-                  .firstWhereOrNull((e) => e['toggleButtonRenderer'] != null)
-                  as JsonMap?)
-              ?.getJson<String>(
+              (topLevelButtons.firstWhereOrNull(
+                      (e) => e['toggleButtonRenderer'] != null) as JsonMap?)
+                  ?.getJson<String>(
                 'toggleButtonRenderer/defaultText/accessibility/accessibilityData/label',
               );
 
@@ -235,18 +233,17 @@ class WatchPageInitialData extends InitialData {
       final contents = root.getJson<List<dynamic>>(
         'contents/twoColumnWatchNextResults/results/results/contents',
       );
-      final primaryInfo = contents
-          ?.firstWhereOrNull((e) => e['videoPrimaryInfoRenderer'] != null)
-          as JsonMap?;
+      final primaryInfo = contents?.firstWhereOrNull(
+          (e) => e['videoPrimaryInfoRenderer'] != null) as JsonMap?;
       final topLevelButtons = primaryInfo?.getJson<List<dynamic>>(
         'videoPrimaryInfoRenderer/videoActions/menuRenderer/topLevelButtons',
       );
       final likes = (topLevelButtons
-                  ?.where((e) => e['toggleButtonRenderer'] != null)
-                  .elementAtSafe(1) as JsonMap?)
-              ?.getJson<String>(
-                'toggleButtonRenderer/defaultText/accessibility/accessibilityData/label',
-              );
+              ?.where((e) => e['toggleButtonRenderer'] != null)
+              .elementAtSafe(1) as JsonMap?)
+          ?.getJson<String>(
+        'toggleButtonRenderer/defaultText/accessibility/accessibilityData/label',
+      );
 
       return likes.parseInt();
     }
@@ -262,8 +259,9 @@ class WatchPageInitialData extends InitialData {
     final items = section?.getJson<List<dynamic>>(
       'engagementPanelSectionListRenderer/content/structuredDescriptionContentRenderer/items',
     );
-    final cardList = items?.firstWhereOrNull((e) =>
-        e['horizontalCardListRenderer'] != null) as JsonMap?;
+    final cardList =
+        items?.firstWhereOrNull((e) => e['horizontalCardListRenderer'] != null)
+            as JsonMap?;
     final cards = cardList?.getJson<List<dynamic>>(
       'horizontalCardListRenderer/cards',
     );

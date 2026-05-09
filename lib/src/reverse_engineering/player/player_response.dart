@@ -29,14 +29,14 @@ class PlayerResponse {
   String get videoAuthor => root.getJson<String>('videoDetails/author') ?? '';
 
   ///
-  DateTime? get videoUploadDate =>
-      root.getJson<String>('microformat/playerMicroformatRenderer/uploadDate')
-          ?.parseDateTime();
+  DateTime? get videoUploadDate => root
+      .getJson<String>('microformat/playerMicroformatRenderer/uploadDate')
+      ?.parseDateTime();
 
   ///
-  DateTime? get videoPublishDate =>
-      root.getJson<String>('microformat/playerMicroformatRenderer/publishDate')
-          ?.parseDateTime();
+  DateTime? get videoPublishDate => root
+      .getJson<String>('microformat/playerMicroformatRenderer/publishDate')
+      ?.parseDateTime();
 
   ///
   String get videoChannelId =>
@@ -44,8 +44,9 @@ class PlayerResponse {
 
   ///
   Duration get videoDuration => Duration(
-        seconds:
-            int.tryParse(root.getJson<String>('videoDetails/lengthSeconds') ?? '') ?? 0,
+        seconds: int.tryParse(
+                root.getJson<String>('videoDetails/lengthSeconds') ?? '') ??
+            0,
       );
 
   ///
@@ -72,9 +73,10 @@ class PlayerResponse {
             ) ??
             '',
       )['video_id'] ??
-      root.getJson<String>(
-        'playabilityStatus/errorScreen/ypcTrailerRenderer/playerResponse',
-      )
+      root
+          .getJson<String>(
+            'playabilityStatus/errorScreen/ypcTrailerRenderer/playerResponse',
+          )
           // From https://github.com/Tyrrrz/YoutubeExplode
           // YouTube uses weird base64-like encoding here that I don't know how to deal with.
           // It's supposed to have JSON inside, but if extracted as is, it contains garbage.
@@ -224,7 +226,8 @@ class _StreamInfo extends StreamInfoProvider {
   late final bool isAudioOnly = codec.type == 'audio';
 
   @override
-  late final MediaType codec = _getMimeType() ?? MediaType('application', 'octet-stream');
+  late final MediaType codec =
+      _getMimeType() ?? MediaType('application', 'octet-stream');
 
   @override
   late final AudioTrack? audioTrack = () {

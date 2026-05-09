@@ -68,7 +68,10 @@ class RelatedVideosClient {
     final channelId = data['longBylineText']?['runs']?[0]?['navigationEndpoint']
         ?['browseEndpoint']?['browseId'] as String?;
 
-    if (videoId == null || title == null || author == null || channelId == null) {
+    if (videoId == null ||
+        title == null ||
+        author == null ||
+        channelId == null) {
       return null;
     }
 
@@ -122,10 +125,11 @@ class RelatedVideosClient {
     if (actions == null) return null;
 
     for (final action in actions) {
-      final continuationItems =
-          action['appendContinuationItemsAction']?['continuationItems'] as List?;
+      final continuationItems = action['appendContinuationItemsAction']
+          ?['continuationItems'] as List?;
       if (continuationItems != null) {
-        return RelatedVideosClient(continuationItems.cast<Map<String, dynamic>>());
+        return RelatedVideosClient(
+            continuationItems.cast<Map<String, dynamic>>());
       }
     }
     return null;
@@ -151,11 +155,8 @@ class RelatedVideosClient {
 
 extension _RelatedVideosExtInitialData on WatchPageInitialData {
   List<Map<String, dynamic>>? getRelatedVideosContent() {
-    final results = (root['contents'] as Map?)
-        ?['twoColumnWatchNextResults']
-        ?['secondaryResults']
-        ?['secondaryResults']
-        ?['results'] as List?;
+    final results = (root['contents'] as Map?)?['twoColumnWatchNextResults']
+        ?['secondaryResults']?['secondaryResults']?['results'] as List?;
     if (results == null) return null;
 
     // YouTube wraps the videos in an itemSectionRenderer — search for it

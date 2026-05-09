@@ -147,8 +147,10 @@ class _InitialData extends InitialData {
     return (count * multiplier).toInt();
   }
 
-  String? get bannerUrl => (root.getJson<List<dynamic>>(
-        'header/c4TabbedHeaderRenderer/banner/thumbnails',
-      )?.first as JsonMap?)
+  String? get bannerUrl => (root
+          .getJson<List<dynamic>>(
+            'header/c4TabbedHeaderRenderer/banner/thumbnails',
+          )
+          ?.first as JsonMap?)
       ?.getT<String>('url');
 }

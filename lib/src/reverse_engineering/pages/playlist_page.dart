@@ -19,7 +19,8 @@ class PlaylistPage extends YoutubePage<_InitialData> {
   late final int? viewCount = initialData.viewCount;
   late final int? videoCount = initialData.videoCount;
 
-  PlaylistPage.id(this.playlistId, _InitialData initialData, [this._visitorData])
+  PlaylistPage.id(this.playlistId, _InitialData initialData,
+      [this._visitorData])
       : super.fromInitialData(initialData);
 
   PlaylistPage.parse(String raw, this.playlistId)
@@ -58,8 +59,8 @@ class PlaylistPage extends YoutubePage<_InitialData> {
           'x-youtube-client-name': '1',
           'x-goog-visitor-id': page.initialData.visitorData ?? '',
         });
-        final browsePage =
-            PlaylistPage.id(id, _InitialData(data), page.initialData.visitorData);
+        final browsePage = PlaylistPage.id(
+            id, _InitialData(data), page.initialData.visitorData);
         if (browsePage.videos.isNotEmpty) return browsePage;
       } catch (_) {
         // Browse failed — fall through and return what we have.
@@ -78,10 +79,11 @@ class _InitialData extends InitialData {
   String? get browseId {
     final params =
         root.getJson<List<dynamic>>('responseContext/serviceTrackingParams');
-    final gfeedback =
-        params?.firstWhereOrNull((e) => e['service'] == 'GFEEDBACK') as JsonMap?;
+    final gfeedback = params
+        ?.firstWhereOrNull((e) => e['service'] == 'GFEEDBACK') as JsonMap?;
     final paramList = gfeedback?.getJson<List<dynamic>>('params');
-    return (paramList?.firstWhereOrNull((e) => e['key'] == 'browse_id') as JsonMap?)
+    return (paramList?.firstWhereOrNull((e) => e['key'] == 'browse_id')
+            as JsonMap?)
         ?.getT<String>('value');
   }
 
@@ -95,21 +97,21 @@ class _InitialData extends InitialData {
       root.getJson<String>('metadata/playlistMetadataRenderer/description');
 
   late final String? author = (root
-              .getJson<List<dynamic>>('sidebar/playlistSidebarRenderer/items')
-              ?.elementAtSafe(1) as JsonMap?)
-          ?.getJson<List<dynamic>>(
-            'playlistSidebarSecondaryInfoRenderer/videoOwner/videoOwnerRenderer/title/runs',
-          )
-          ?.cast<Map<dynamic, dynamic>>()
-          .parseRuns();
+          .getJson<List<dynamic>>('sidebar/playlistSidebarRenderer/items')
+          ?.elementAtSafe(1) as JsonMap?)
+      ?.getJson<List<dynamic>>(
+        'playlistSidebarSecondaryInfoRenderer/videoOwner/videoOwnerRenderer/title/runs',
+      )
+      ?.cast<Map<dynamic, dynamic>>()
+      .parseRuns();
 
   late final int? viewCount = ((root
-                  .getJson<List<dynamic>>('sidebar/playlistSidebarRenderer/items')
-                  ?.firstOrNull as JsonMap?)
-              ?.getJson<List<dynamic>>('playlistSidebarPrimaryInfoRenderer/stats')
-              ?.elementAtSafe(1) as JsonMap?)
-          ?.getJson<String>('simpleText')
-          .parseInt();
+              .getJson<List<dynamic>>('sidebar/playlistSidebarRenderer/items')
+              ?.firstOrNull as JsonMap?)
+          ?.getJson<List<dynamic>>('playlistSidebarPrimaryInfoRenderer/stats')
+          ?.elementAtSafe(1) as JsonMap?)
+      ?.getJson<String>('simpleText')
+      .parseInt();
 
   late final int? videoCount = () {
     final stats = (root
@@ -164,21 +166,22 @@ class _InitialData extends InitialData {
         root.getJson<List<dynamic>>('onResponseReceivedCommands');
     if (actions != null) {
       for (final action in actions.cast<JsonMap>()) {
-        final items =
-            action.getJson<List<dynamic>>('appendContinuationItemsAction/continuationItems') ??
-            action.getJson<List<dynamic>>('reloadContinuationItemsCommand/continuationItems');
+        final items = action.getJson<List<dynamic>>(
+                'appendContinuationItemsAction/continuationItems') ??
+            action.getJson<List<dynamic>>(
+                'reloadContinuationItemsCommand/continuationItems');
         if (items != null) return items.cast<JsonMap>();
       }
     }
 
     // Initial page: tabs → sectionList → itemSection → playlistVideoListRenderer.
-    final tabs = root.getJson<List<dynamic>>(
-        'contents/twoColumnBrowseResultsRenderer/tabs');
+    final tabs = root
+        .getJson<List<dynamic>>('contents/twoColumnBrowseResultsRenderer/tabs');
     if (tabs == null) return null;
 
     for (final tab in tabs.cast<JsonMap>()) {
-      final sections = tab
-          .getJson<List<dynamic>>('tabRenderer/content/sectionListRenderer/contents');
+      final sections = tab.getJson<List<dynamic>>(
+          'tabRenderer/content/sectionListRenderer/contents');
       if (sections == null) continue;
 
       for (final section in sections.cast<JsonMap>()) {
