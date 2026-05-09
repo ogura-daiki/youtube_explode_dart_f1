@@ -192,29 +192,50 @@ class _InitialData extends InitialData {
     }
 
     Map<String, dynamic>? video;
+    bool isLockup = false;
     if (content.containsKey('gridVideoRenderer')) {
       video = content.getJson<JsonMap>('gridVideoRenderer');
     } else if (content.containsKey('richItemRenderer')) {
       video = content.getJson<JsonMap>(
         'richItemRenderer/content/${type.youtubeRenderText}',
       );
+      if (video == null && type == VideoType.normal) {
+        video = content.getJson<JsonMap>('richItemRenderer/content/lockupViewModel');
+        if (video != null && video['contentType'] == 'LOCKUP_CONTENT_TYPE_VIDEO') {
+          isLockup = true;
+        } else {
+          video = null;
+        }
+      }
       if (type == VideoType.shorts && video != null) {
         return ChannelVideo(
             VideoId(video.getJson<String>(
                 'onTap/innertubeCommand/reelWatchEndpoint/videoId')!),
             video.getJson<String>('overlayMetadata/primaryText/content')!,
             Duration.zero,
-            video.getJson<String>('thumbnail/sources/0/url')!,
+            video.getJson<String>('thumbnail/sources/0/url') ?? video.getJson<String>('thumbnailViewModel/thumbnailViewModel/image/sources/0/url') ?? '',
             '',
             video
-                .getJson<String>('overlayMetadata/secondaryText/content')!
-                .parseInt()!);
+                .getJson<String>('overlayMetadata/secondaryText/content')
+                .parseInt() ?? 0);
       }
     }
 
     if (video == null) {
       return null;
     }
+    
+    if (isLockup) {
+      return ChannelVideo(
+        VideoId(video.getJson<String>('rendererContext/commandContext/onTap/innertubeCommand/watchEndpoint/videoId')!),
+        video.getJson<String>('metadata/primaryText/content') ?? '',
+        video.getJson<String>('imageOverlays/0/thumbnailOverlayTimeStatusRenderer/text/simpleText')?.toDuration() ?? Duration.zero,
+        video.getJson<String>('thumbnailViewModel/thumbnailViewModel/image/sources/0/url') ?? '',
+        video.getJson<String>('metadata/metadataParts/1/text/content') ?? '',
+        video.getJson<String>('metadata/metadataText/content').parseInt() ?? 0,
+      );
+    }
+
     return ChannelVideo(
       VideoId(video.getT<String>('videoId')!),
       video.getJson<String>('title/simpleText') ??
