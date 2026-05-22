@@ -18,7 +18,10 @@ enum VideoIdData {
   withOmnidirectionalStreams('-xNN-bJQ4vI'),
   withHighDynamicRangeStreams('vX2vsvdq8nw'),
   withClosedCaptions('YltHGKX80Y8'),
-  withBrokenClosedCaptions('1VKIIw05JnE');
+  withBrokenClosedCaptions('1VKIIw05JnE'),
+  recent('X1GtdZkiJC4'),
+  // used only for testing music data extraction
+  music('jNm_wrWquPs');
 
   const VideoIdData(this.id);
 

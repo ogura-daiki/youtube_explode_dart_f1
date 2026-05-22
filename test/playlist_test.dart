@@ -50,7 +50,7 @@ void main() {
     final videos = await yt!.playlists
         .getVideos(
           PlaylistId(
-            'https://www.youtube.com/playlist?list=PLUpIWHnoHbGwSEJlDFpo9c5v3wk2DXLqo',
+            'https://www.youtube.com/playlist?list=PLWwAypAcFRgKFlxtLbn_u14zddtDJj3mk',
           ),
           PageLanguage.jaJP,
         )
@@ -81,5 +81,12 @@ void main() {
             'RDCLAK5uy_m9Rw_g5eCJtMhuRgP1eqU3H-XW7UL6uWQ', PageLanguage.jaJP)
         .toList();
     expect(videos.length, greaterThan(100));
+  });
+
+  test('Get videos of playlist with collaborative video', () async {
+    final videos = await yt!.playlists
+        .getVideos('PLjp0AEEJ0-fGKG_3skl0e1FQlJfnx-TJz')
+        .toList();
+    expect(videos.any((v) => v.id.value == '32sPcsb9ClQ'), true);
   });
 }
