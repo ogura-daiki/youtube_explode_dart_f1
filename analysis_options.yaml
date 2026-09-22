@@ -8,8 +8,8 @@ analyzer:
     strict-casts: false
 
   exclude:
-    - "**/*.g.dart"
-    - "**/*.freezed.dart"
+    # - "**/*.g.dart"
+    # - "**/*.freezed.dart"
     - example/**
 
 linter:

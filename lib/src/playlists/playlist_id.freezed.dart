@@ -15,8 +15,12 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$PlaylistId {
-  /// The playlist id as string.
-  String get value;
+  /// Create a copy of PlaylistId
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $PlaylistIdCopyWith<PlaylistId> get copyWith =>
+      _$PlaylistIdCopyWithImpl<PlaylistId>(this as PlaylistId, _$identity);
 
   @override
   bool operator ==(Object other) {
@@ -32,6 +36,38 @@ mixin _$PlaylistId {
   int get hashCode {
     final _this = this as PlaylistId;
     return Object.hash(runtimeType, _this.value);
+  }
+}
+
+/// @nodoc
+abstract mixin class $PlaylistIdCopyWith<$Res> {
+  factory $PlaylistIdCopyWith(
+          PlaylistId value, $Res Function(PlaylistId) _then) =
+      _$PlaylistIdCopyWithImpl;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$PlaylistIdCopyWithImpl<$Res> implements $PlaylistIdCopyWith<$Res> {
+  _$PlaylistIdCopyWithImpl(this._self, this._then);
+
+  final PlaylistId _self;
+  final $Res Function(PlaylistId) _then;
+
+  /// Create a copy of PlaylistId
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(PlaylistId(
+      null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -51,13 +87,10 @@ extension PlaylistIdPatterns on PlaylistId {
 
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PlaylistId value)? _internal,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _PlaylistId() when _internal != null:
-        return _internal(_that);
       case _:
         return orElse();
     }
@@ -77,13 +110,9 @@ extension PlaylistIdPatterns on PlaylistId {
   /// ```
 
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_PlaylistId value) _internal,
-  }) {
+  TResult map<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _PlaylistId():
-        return _internal(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -102,13 +131,9 @@ extension PlaylistIdPatterns on PlaylistId {
   /// ```
 
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PlaylistId value)? _internal,
-  }) {
+  TResult? mapOrNull<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _PlaylistId() when _internal != null:
-        return _internal(_that);
       case _:
         return null;
     }
@@ -128,13 +153,10 @@ extension PlaylistIdPatterns on PlaylistId {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String value)? _internal,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _PlaylistId() when _internal != null:
-        return _internal(_that.value);
       case _:
         return orElse();
     }
@@ -154,13 +176,9 @@ extension PlaylistIdPatterns on PlaylistId {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String value) _internal,
-  }) {
+  TResult when<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _PlaylistId():
-        return _internal(_that.value);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -179,39 +197,12 @@ extension PlaylistIdPatterns on PlaylistId {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String value)? _internal,
-  }) {
+  TResult? whenOrNull<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _PlaylistId() when _internal != null:
-        return _internal(_that.value);
       case _:
         return null;
     }
-  }
-}
-
-/// @nodoc
-
-class _PlaylistId extends PlaylistId {
-  const _PlaylistId(this.value) : super._();
-
-  /// The playlist id as string.
-  @override
-  final String value;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _PlaylistId &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode {
-    return Object.hash(runtimeType, value);
   }
 }
 

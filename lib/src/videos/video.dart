@@ -1,5 +1,4 @@
-import 'dart:collection';
-
+import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../channels/channel_id.dart';
@@ -20,99 +19,19 @@ abstract class Video with _$Video {
   /// Returns true if the watch page is available for this video.
   bool get hasWatchPage => watchPage != null;
 
-  factory Video(
-    /// Video ID.
-    VideoId id,
-
-    /// Video title.
-    String title,
-
-    /// Video author.
-    String author,
-
-    /// Video author Id.
-    ChannelId channelId,
-
-    /// Video upload date.
-    /// Note: For search queries it is calculated with:
-    ///   DateTime.now() - how much time is was published.
-    DateTime? uploadDate,
-    String? uploadDateRaw,
-
-    /// Video publish date.
-    DateTime? publishDate,
-
-    /// Video description.
-    String description,
-
-    /// Duration of the video.
-    Duration? duration,
-
-    /// Available thumbnails for this video.
-    ThumbnailSet thumbnails,
-
-    /// Search keywords used for this video.
-    Iterable<String>? keywords,
-
-    /// Engagement statistics for this video.
-    Engagement engagement,
-
-    /// Returns true if this is a live stream.
-    //ignore: avoid_positional_boolean_parameters
-    bool isLive, [
-    /// Music data such as song, artist, album, and image.
-    /// Empty if no data is available.
-    List<MusicData> musicData = const [],
-
-    /// Used internally.
-    /// Shouldn't be used in the code.
-    @internal WatchPage? watchPage,
-  ]) {
-    return Video._internal(
-      /// Video ID.
-      id,
-
-      /// Video title.
-      title,
-
-      /// Video author.
-      author,
-
-      /// Video author Id.
-      channelId,
-
-      /// Video upload date.
-      /// Note: For search queries it is calculated with:
-      ///   DateTime.now() - how much time is was published.
-      uploadDate,
-      uploadDateRaw,
-
-      /// Video publish date.
-      publishDate,
-      description,
-      duration,
-      thumbnails,
-      UnmodifiableListView(keywords ?? const Iterable.empty()),
-      engagement,
-      isLive,
-      musicData,
-      watchPage,
-    );
-  }
-
   /// Initializes an instance of [Video]
-  const factory Video._internal(
+  const factory Video({
     /// Video ID.
-    VideoId id,
+    required VideoId id,
 
     /// Video title.
-    String title,
+    required String title,
 
     /// Video author.
-    String author,
+    required String author,
 
     /// Video author Id.
-    ChannelId channelId,
+    required ChannelId channelId,
 
     /// Video upload date.
     /// Note: For search queries it is calculated with:
@@ -124,31 +43,33 @@ abstract class Video with _$Video {
     DateTime? publishDate,
 
     /// Video description.
-    String description,
+    required String description,
 
     /// Duration of the video.
     Duration? duration,
 
     /// Available thumbnails for this video.
-    ThumbnailSet thumbnails,
-
-    /// Search keywords used for this video.
-    UnmodifiableListView<String> keywords,
+    required ThumbnailSet thumbnails,
 
     /// Engagement statistics for this video.
-    Engagement engagement,
+    required Engagement engagement,
 
     /// Returns true if this is a live stream.
     //ignore: avoid_positional_boolean_parameters
-    bool isLive,
+    required bool isLive,
 
     /// Music data such as song, artist, album, and image.
     /// Empty if no data is available.
-    List<MusicData> musicData, [
+    @Default([]) List<MusicData>? musicData,
+
+    /// Search keywords used for this video.
+    @Default([]) List<String>? keywords,
+
     /// Used internally.
     /// Shouldn't be used in the code.
     @internal WatchPage? watchPage,
-  ]) = _Video;
+    
+  }) = _Video;
 
   const Video._();
 }

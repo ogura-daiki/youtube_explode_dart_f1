@@ -71,7 +71,12 @@ class _$StreamContainerCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(StreamContainer._());
+    return _then(StreamContainer(
+      null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -90,14 +95,14 @@ extension StreamContainerPatterns on StreamContainer {
   /// ```
 
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_StreamContainer value)? _internal,
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_StreamContainer value)? $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _StreamContainer() when _internal != null:
-        return _internal(_that);
+      case _StreamContainer() when $default != null:
+        return $default(_that);
       case _:
         return orElse();
     }
@@ -117,13 +122,13 @@ extension StreamContainerPatterns on StreamContainer {
   /// ```
 
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_StreamContainer value) _internal,
-  }) {
+  TResult map<TResult extends Object?>(
+    TResult Function(_StreamContainer value) $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _StreamContainer():
-        return _internal(_that);
+        return $default(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -142,13 +147,13 @@ extension StreamContainerPatterns on StreamContainer {
   /// ```
 
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_StreamContainer value)? _internal,
-  }) {
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_StreamContainer value)? $default,
+  ) {
     final _that = this;
     switch (_that) {
-      case _StreamContainer() when _internal != null:
-        return _internal(_that);
+      case _StreamContainer() when $default != null:
+        return $default(_that);
       case _:
         return null;
     }
@@ -167,14 +172,14 @@ extension StreamContainerPatterns on StreamContainer {
   /// ```
 
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name)? _internal,
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String name)? $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _StreamContainer() when _internal != null:
-        return _internal(_that.name);
+      case _StreamContainer() when $default != null:
+        return $default(_that.name);
       case _:
         return orElse();
     }
@@ -194,13 +199,13 @@ extension StreamContainerPatterns on StreamContainer {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name) _internal,
-  }) {
+  TResult when<TResult extends Object?>(
+    TResult Function(String name) $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _StreamContainer():
-        return _internal(_that.name);
+        return $default(_that.name);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -219,13 +224,13 @@ extension StreamContainerPatterns on StreamContainer {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name)? _internal,
-  }) {
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String name)? $default,
+  ) {
     final _that = this;
     switch (_that) {
-      case _StreamContainer() when _internal != null:
-        return _internal(_that.name);
+      case _StreamContainer() when $default != null:
+        return $default(_that.name);
       case _:
         return null;
     }

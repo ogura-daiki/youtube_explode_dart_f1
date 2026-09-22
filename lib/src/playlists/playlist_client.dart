@@ -49,19 +49,17 @@ class PlaylistClient {
         if (video.channelId.isEmpty) continue;
 
         yield Video(
-          VideoId(video.id),
-          video.title,
-          video.author,
-          ChannelId(video.channelId),
-          video.uploadDateRaw.toDateTime(lang),
-          video.uploadDateRaw,
-          null,
-          video.description,
-          video.duration,
-          ThumbnailSet(video.id),
-          null,
-          Engagement(video.viewCount, null, null),
-          false,
+          id: VideoId(video.id),
+          title: video.title,
+          author: video.author,
+          channelId: ChannelId(video.channelId),
+          uploadDate: video.uploadDateRaw.toDateTime(lang),
+          uploadDateRaw: video.uploadDateRaw,
+          description: video.description,
+          duration: video.duration,
+          thumbnails: ThumbnailSet(video.id),
+          engagement: Engagement(video.viewCount, null, null),
+          isLive: false,
         );
       }
 

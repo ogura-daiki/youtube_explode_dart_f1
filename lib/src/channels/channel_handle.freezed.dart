@@ -15,8 +15,15 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ChannelHandle {
-  /// Handle as string.
   String get value;
+
+  /// Create a copy of ChannelHandle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ChannelHandleCopyWith<ChannelHandle> get copyWith =>
+      _$ChannelHandleCopyWithImpl<ChannelHandle>(
+          this as ChannelHandle, _$identity);
 
   @override
   bool operator ==(Object other) {
@@ -41,6 +48,39 @@ mixin _$ChannelHandle {
   }
 }
 
+/// @nodoc
+abstract mixin class $ChannelHandleCopyWith<$Res> {
+  factory $ChannelHandleCopyWith(
+          ChannelHandle value, $Res Function(ChannelHandle) _then) =
+      _$ChannelHandleCopyWithImpl;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$ChannelHandleCopyWithImpl<$Res>
+    implements $ChannelHandleCopyWith<$Res> {
+  _$ChannelHandleCopyWithImpl(this._self, this._then);
+
+  final ChannelHandle _self;
+  final $Res Function(ChannelHandle) _then;
+
+  /// Create a copy of ChannelHandle
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(ChannelHandle(
+      null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
 /// Adds pattern-matching-related methods to [ChannelHandle].
 extension ChannelHandlePatterns on ChannelHandle {
   /// A variant of `map` that fallback to returning `orElse`.
@@ -56,14 +96,14 @@ extension ChannelHandlePatterns on ChannelHandle {
   /// ```
 
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChannelHandle value)? _,
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ChannelHandle value)? $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _ChannelHandle() when _ != null:
-        return _(_that);
+      case _ChannelHandle() when $default != null:
+        return $default(_that);
       case _:
         return orElse();
     }
@@ -83,13 +123,13 @@ extension ChannelHandlePatterns on ChannelHandle {
   /// ```
 
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChannelHandle value) _,
-  }) {
+  TResult map<TResult extends Object?>(
+    TResult Function(_ChannelHandle value) $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _ChannelHandle():
-        return _(_that);
+        return $default(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -108,13 +148,13 @@ extension ChannelHandlePatterns on ChannelHandle {
   /// ```
 
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChannelHandle value)? _,
-  }) {
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ChannelHandle value)? $default,
+  ) {
     final _that = this;
     switch (_that) {
-      case _ChannelHandle() when _ != null:
-        return _(_that);
+      case _ChannelHandle() when $default != null:
+        return $default(_that);
       case _:
         return null;
     }
@@ -133,14 +173,14 @@ extension ChannelHandlePatterns on ChannelHandle {
   /// ```
 
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String value)? _,
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String value)? $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _ChannelHandle() when _ != null:
-        return _(_that.value);
+      case _ChannelHandle() when $default != null:
+        return $default(_that.value);
       case _:
         return orElse();
     }
@@ -160,13 +200,13 @@ extension ChannelHandlePatterns on ChannelHandle {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String value) _,
-  }) {
+  TResult when<TResult extends Object?>(
+    TResult Function(String value) $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _ChannelHandle():
-        return _(_that.value);
+        return $default(_that.value);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -185,13 +225,13 @@ extension ChannelHandlePatterns on ChannelHandle {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String value)? _,
-  }) {
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String value)? $default,
+  ) {
     final _that = this;
     switch (_that) {
-      case _ChannelHandle() when _ != null:
-        return _(_that.value);
+      case _ChannelHandle() when $default != null:
+        return $default(_that.value);
       case _:
         return null;
     }
@@ -200,12 +240,22 @@ extension ChannelHandlePatterns on ChannelHandle {
 
 /// @nodoc
 
-class _ChannelHandle implements ChannelHandle {
-  const _ChannelHandle(this.value);
+class _ChannelHandle extends ChannelHandle {
+  _ChannelHandle(this.value)
+      : assert(ChannelHandle.parseChannelHandle(value) != null,
+            'Invalid ChannelHandle'),
+        super._();
 
-  /// Handle as string.
   @override
   final String value;
+
+  /// Create a copy of ChannelHandle
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ChannelHandleCopyWith<_ChannelHandle> get copyWith =>
+      __$ChannelHandleCopyWithImpl<_ChannelHandle>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
@@ -222,7 +272,42 @@ class _ChannelHandle implements ChannelHandle {
 
   @override
   String toString() {
-    return 'ChannelHandle._(value: $value)';
+    return 'ChannelHandle(value: $value)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ChannelHandleCopyWith<$Res>
+    implements $ChannelHandleCopyWith<$Res> {
+  factory _$ChannelHandleCopyWith(
+          _ChannelHandle value, $Res Function(_ChannelHandle) _then) =
+      __$ChannelHandleCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$ChannelHandleCopyWithImpl<$Res>
+    implements _$ChannelHandleCopyWith<$Res> {
+  __$ChannelHandleCopyWithImpl(this._self, this._then);
+
+  final _ChannelHandle _self;
+  final $Res Function(_ChannelHandle) _then;
+
+  /// Create a copy of ChannelHandle
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_ChannelHandle(
+      null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 

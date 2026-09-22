@@ -15,8 +15,12 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$Username {
-  /// User name as string.
-  String get value;
+  /// Create a copy of Username
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UsernameCopyWith<Username> get copyWith =>
+      _$UsernameCopyWithImpl<Username>(this as Username, _$identity);
 
   @override
   bool operator ==(Object other) {
@@ -41,6 +45,37 @@ mixin _$Username {
   }
 }
 
+/// @nodoc
+abstract mixin class $UsernameCopyWith<$Res> {
+  factory $UsernameCopyWith(Username value, $Res Function(Username) _then) =
+      _$UsernameCopyWithImpl;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$UsernameCopyWithImpl<$Res> implements $UsernameCopyWith<$Res> {
+  _$UsernameCopyWithImpl(this._self, this._then);
+
+  final Username _self;
+  final $Res Function(Username) _then;
+
+  /// Create a copy of Username
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(Username(
+      null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
 /// Adds pattern-matching-related methods to [Username].
 extension UsernamePatterns on Username {
   /// A variant of `map` that fallback to returning `orElse`.
@@ -57,13 +92,10 @@ extension UsernamePatterns on Username {
 
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Username value)? _,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _Username() when _ != null:
-        return _(_that);
       case _:
         return orElse();
     }
@@ -83,13 +115,9 @@ extension UsernamePatterns on Username {
   /// ```
 
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Username value) _,
-  }) {
+  TResult map<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _Username():
-        return _(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -108,13 +136,9 @@ extension UsernamePatterns on Username {
   /// ```
 
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Username value)? _,
-  }) {
+  TResult? mapOrNull<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _Username() when _ != null:
-        return _(_that);
       case _:
         return null;
     }
@@ -134,13 +158,10 @@ extension UsernamePatterns on Username {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String value)? _,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _Username() when _ != null:
-        return _(_that.value);
       case _:
         return orElse();
     }
@@ -160,13 +181,9 @@ extension UsernamePatterns on Username {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String value) _,
-  }) {
+  TResult when<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _Username():
-        return _(_that.value);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -185,44 +202,12 @@ extension UsernamePatterns on Username {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String value)? _,
-  }) {
+  TResult? whenOrNull<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _Username() when _ != null:
-        return _(_that.value);
       case _:
         return null;
     }
-  }
-}
-
-/// @nodoc
-
-class _Username implements Username {
-  const _Username(this.value);
-
-  /// User name as string.
-  @override
-  final String value;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _Username &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode {
-    return Object.hash(runtimeType, value);
-  }
-
-  @override
-  String toString() {
-    return 'Username._(value: $value)';
   }
 }
 

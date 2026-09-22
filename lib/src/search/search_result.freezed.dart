@@ -490,6 +490,8 @@ abstract mixin class $SearchVideoCopyWith<$Res>
       String? uploadDate,
       bool isLive,
       String channelId});
+
+  $VideoIdCopyWith<$Res> get id;
 }
 
 /// @nodoc
@@ -557,6 +559,16 @@ class _$SearchVideoCopyWithImpl<$Res> implements $SearchVideoCopyWith<$Res> {
           : channelId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
+  }
+
+  /// Create a copy of SearchResult
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoIdCopyWith<$Res> get id {
+    return $VideoIdCopyWith<$Res>(_self.id, (value) {
+      return _then(_self.copyWith(id: value));
+    });
   }
 }
 
@@ -635,6 +647,8 @@ abstract mixin class $SearchPlaylistCopyWith<$Res>
       String title,
       int videoCount,
       List<Thumbnail> thumbnails});
+
+  $PlaylistIdCopyWith<$Res> get id;
 }
 
 /// @nodoc
@@ -673,6 +687,16 @@ class _$SearchPlaylistCopyWithImpl<$Res>
           : thumbnails // ignore: cast_nullable_to_non_nullable
               as List<Thumbnail>,
     ));
+  }
+
+  /// Create a copy of SearchResult
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaylistIdCopyWith<$Res> get id {
+    return $PlaylistIdCopyWith<$Res>(_self.id, (value) {
+      return _then(_self.copyWith(id: value));
+    });
   }
 }
 

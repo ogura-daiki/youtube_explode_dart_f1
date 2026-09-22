@@ -101,6 +101,7 @@ abstract mixin class $PlaylistCopyWith<$Res> {
       Engagement engagement,
       int? videoCount});
 
+  $PlaylistIdCopyWith<$Res> get id;
   $ThumbnailSetCopyWith<$Res> get thumbnails;
   $EngagementCopyWith<$Res> get engagement;
 }
@@ -155,6 +156,16 @@ class _$PlaylistCopyWithImpl<$Res> implements $PlaylistCopyWith<$Res> {
           : videoCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
+  }
+
+  /// Create a copy of Playlist
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaylistIdCopyWith<$Res> get id {
+    return $PlaylistIdCopyWith<$Res>(_self.id, (value) {
+      return _then(_self.copyWith(id: value));
+    });
   }
 
   /// Create a copy of Playlist
@@ -454,6 +465,8 @@ abstract mixin class _$PlaylistCopyWith<$Res>
       int? videoCount});
 
   @override
+  $PlaylistIdCopyWith<$Res> get id;
+  @override
   $ThumbnailSetCopyWith<$Res> get thumbnails;
   @override
   $EngagementCopyWith<$Res> get engagement;
@@ -509,6 +522,16 @@ class __$PlaylistCopyWithImpl<$Res> implements _$PlaylistCopyWith<$Res> {
           : videoCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
+  }
+
+  /// Create a copy of Playlist
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaylistIdCopyWith<$Res> get id {
+    return $PlaylistIdCopyWith<$Res>(_self.id, (value) {
+      return _then(_self.copyWith(id: value));
+    });
   }
 
   /// Create a copy of Playlist

@@ -45,9 +45,6 @@ mixin _$Video {
   /// Available thumbnails for this video.
   ThumbnailSet get thumbnails;
 
-  /// Search keywords used for this video.
-  UnmodifiableListView<String> get keywords;
-
   /// Engagement statistics for this video.
   Engagement get engagement;
 
@@ -56,7 +53,10 @@ mixin _$Video {
 
   /// Music data such as song, artist, album, and image.
   /// Empty if no data is available.
-  List<MusicData> get musicData;
+  List<MusicData>? get musicData;
+
+  /// Search keywords used for this video.
+  List<String>? get keywords;
 
   /// Used internally.
   /// Shouldn't be used in the code.
@@ -95,14 +95,14 @@ mixin _$Video {
                 other.duration == _this.duration) &&
             (identical(other.thumbnails, _this.thumbnails) ||
                 other.thumbnails == _this.thumbnails) &&
-            const DeepCollectionEquality()
-                .equals(other.keywords, _this.keywords) &&
             (identical(other.engagement, _this.engagement) ||
                 other.engagement == _this.engagement) &&
             (identical(other.isLive, _this.isLive) ||
                 other.isLive == _this.isLive) &&
             const DeepCollectionEquality()
                 .equals(other.musicData, _this.musicData) &&
+            const DeepCollectionEquality()
+                .equals(other.keywords, _this.keywords) &&
             (identical(other.watchPage, _this.watchPage) ||
                 other.watchPage == _this.watchPage));
   }
@@ -122,17 +122,17 @@ mixin _$Video {
         _this.description,
         _this.duration,
         _this.thumbnails,
-        const DeepCollectionEquality().hash(_this.keywords),
         _this.engagement,
         _this.isLive,
         const DeepCollectionEquality().hash(_this.musicData),
+        const DeepCollectionEquality().hash(_this.keywords),
         _this.watchPage);
   }
 
   @override
   String toString() {
     final _this = this as Video;
-    return 'Video(id: ${_this.id}, title: ${_this.title}, author: ${_this.author}, channelId: ${_this.channelId}, uploadDate: ${_this.uploadDate}, uploadDateRaw: ${_this.uploadDateRaw}, publishDate: ${_this.publishDate}, description: ${_this.description}, duration: ${_this.duration}, thumbnails: ${_this.thumbnails}, keywords: ${_this.keywords}, engagement: ${_this.engagement}, isLive: ${_this.isLive}, musicData: ${_this.musicData}, watchPage: ${_this.watchPage})';
+    return 'Video(id: ${_this.id}, title: ${_this.title}, author: ${_this.author}, channelId: ${_this.channelId}, uploadDate: ${_this.uploadDate}, uploadDateRaw: ${_this.uploadDateRaw}, publishDate: ${_this.publishDate}, description: ${_this.description}, duration: ${_this.duration}, thumbnails: ${_this.thumbnails}, engagement: ${_this.engagement}, isLive: ${_this.isLive}, musicData: ${_this.musicData}, keywords: ${_this.keywords}, watchPage: ${_this.watchPage})';
   }
 }
 
@@ -152,12 +152,13 @@ abstract mixin class $VideoCopyWith<$Res> {
       String description,
       Duration? duration,
       ThumbnailSet thumbnails,
-      UnmodifiableListView<String> keywords,
       Engagement engagement,
       bool isLive,
-      List<MusicData> musicData,
+      List<MusicData>? musicData,
+      List<String>? keywords,
       @internal WatchPage? watchPage});
 
+  $VideoIdCopyWith<$Res> get id;
   $ChannelIdCopyWith<$Res> get channelId;
   $ThumbnailSetCopyWith<$Res> get thumbnails;
   $EngagementCopyWith<$Res> get engagement;
@@ -185,74 +186,84 @@ class _$VideoCopyWithImpl<$Res> implements $VideoCopyWith<$Res> {
     Object? description = null,
     Object? duration = freezed,
     Object? thumbnails = null,
-    Object? keywords = null,
     Object? engagement = null,
     Object? isLive = null,
-    Object? musicData = null,
+    Object? musicData = freezed,
+    Object? keywords = freezed,
     Object? watchPage = freezed,
   }) {
     return _then(Video(
-      null == id
+      id: null == id
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as VideoId,
-      null == title
+      title: null == title
           ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == author
+      author: null == author
           ? _self.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
-      null == channelId
+      channelId: null == channelId
           ? _self.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
               as ChannelId,
-      freezed == uploadDate
+      uploadDate: freezed == uploadDate
           ? _self.uploadDate
           : uploadDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      freezed == uploadDateRaw
+      uploadDateRaw: freezed == uploadDateRaw
           ? _self.uploadDateRaw
           : uploadDateRaw // ignore: cast_nullable_to_non_nullable
               as String?,
-      freezed == publishDate
+      publishDate: freezed == publishDate
           ? _self.publishDate
           : publishDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      null == description
+      description: null == description
           ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      freezed == duration
+      duration: freezed == duration
           ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration?,
-      null == thumbnails
+      thumbnails: null == thumbnails
           ? _self.thumbnails
           : thumbnails // ignore: cast_nullable_to_non_nullable
               as ThumbnailSet,
-      freezed == keywords
-          ? _self.keywords!
-          : keywords // ignore: cast_nullable_to_non_nullable
-              as Iterable<String>?,
-      null == engagement
+      engagement: null == engagement
           ? _self.engagement
           : engagement // ignore: cast_nullable_to_non_nullable
               as Engagement,
-      null == isLive
+      isLive: null == isLive
           ? _self.isLive
           : isLive // ignore: cast_nullable_to_non_nullable
               as bool,
-      null == musicData
+      musicData: freezed == musicData
           ? _self.musicData
           : musicData // ignore: cast_nullable_to_non_nullable
-              as List<MusicData>,
-      freezed == watchPage
+              as List<MusicData>?,
+      keywords: freezed == keywords
+          ? _self.keywords
+          : keywords // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      watchPage: freezed == watchPage
           ? _self.watchPage
           : watchPage // ignore: cast_nullable_to_non_nullable
               as WatchPage?,
     ));
+  }
+
+  /// Create a copy of Video
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoIdCopyWith<$Res> get id {
+    return $VideoIdCopyWith<$Res>(_self.id, (value) {
+      return _then(_self.copyWith(id: value));
+    });
   }
 
   /// Create a copy of Video
@@ -301,14 +312,14 @@ extension VideoPatterns on Video {
   /// ```
 
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Video value)? _internal,
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Video value)? $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _Video() when _internal != null:
-        return _internal(_that);
+      case _Video() when $default != null:
+        return $default(_that);
       case _:
         return orElse();
     }
@@ -328,13 +339,13 @@ extension VideoPatterns on Video {
   /// ```
 
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Video value) _internal,
-  }) {
+  TResult map<TResult extends Object?>(
+    TResult Function(_Video value) $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _Video():
-        return _internal(_that);
+        return $default(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -353,13 +364,13 @@ extension VideoPatterns on Video {
   /// ```
 
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Video value)? _internal,
-  }) {
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Video value)? $default,
+  ) {
     final _that = this;
     switch (_that) {
-      case _Video() when _internal != null:
-        return _internal(_that);
+      case _Video() when $default != null:
+        return $default(_that);
       case _:
         return null;
     }
@@ -378,7 +389,7 @@ extension VideoPatterns on Video {
   /// ```
 
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             VideoId id,
             String title,
@@ -390,18 +401,18 @@ extension VideoPatterns on Video {
             String description,
             Duration? duration,
             ThumbnailSet thumbnails,
-            UnmodifiableListView<String> keywords,
             Engagement engagement,
             bool isLive,
-            List<MusicData> musicData,
+            List<MusicData>? musicData,
+            List<String>? keywords,
             @internal WatchPage? watchPage)?
-        _internal,
+        $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _Video() when _internal != null:
-        return _internal(
+      case _Video() when $default != null:
+        return $default(
             _that.id,
             _that.title,
             _that.author,
@@ -412,10 +423,10 @@ extension VideoPatterns on Video {
             _that.description,
             _that.duration,
             _that.thumbnails,
-            _that.keywords,
             _that.engagement,
             _that.isLive,
             _that.musicData,
+            _that.keywords,
             _that.watchPage);
       case _:
         return orElse();
@@ -436,8 +447,8 @@ extension VideoPatterns on Video {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
+  TResult when<TResult extends Object?>(
+    TResult Function(
             VideoId id,
             String title,
             String author,
@@ -448,17 +459,17 @@ extension VideoPatterns on Video {
             String description,
             Duration? duration,
             ThumbnailSet thumbnails,
-            UnmodifiableListView<String> keywords,
             Engagement engagement,
             bool isLive,
-            List<MusicData> musicData,
+            List<MusicData>? musicData,
+            List<String>? keywords,
             @internal WatchPage? watchPage)
-        _internal,
-  }) {
+        $default,
+  ) {
     final _that = this;
     switch (_that) {
       case _Video():
-        return _internal(
+        return $default(
             _that.id,
             _that.title,
             _that.author,
@@ -469,10 +480,10 @@ extension VideoPatterns on Video {
             _that.description,
             _that.duration,
             _that.thumbnails,
-            _that.keywords,
             _that.engagement,
             _that.isLive,
             _that.musicData,
+            _that.keywords,
             _that.watchPage);
       case _:
         throw StateError('Unexpected subclass');
@@ -492,7 +503,7 @@ extension VideoPatterns on Video {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             VideoId id,
             String title,
@@ -504,17 +515,17 @@ extension VideoPatterns on Video {
             String description,
             Duration? duration,
             ThumbnailSet thumbnails,
-            UnmodifiableListView<String> keywords,
             Engagement engagement,
             bool isLive,
-            List<MusicData> musicData,
+            List<MusicData>? musicData,
+            List<String>? keywords,
             @internal WatchPage? watchPage)?
-        _internal,
-  }) {
+        $default,
+  ) {
     final _that = this;
     switch (_that) {
-      case _Video() when _internal != null:
-        return _internal(
+      case _Video() when $default != null:
+        return $default(
             _that.id,
             _that.title,
             _that.author,
@@ -525,10 +536,10 @@ extension VideoPatterns on Video {
             _that.description,
             _that.duration,
             _that.thumbnails,
-            _that.keywords,
             _that.engagement,
             _that.isLive,
             _that.musicData,
+            _that.keywords,
             _that.watchPage);
       case _:
         return null;
@@ -540,22 +551,23 @@ extension VideoPatterns on Video {
 
 class _Video extends Video {
   const _Video(
-      this.id,
-      this.title,
-      this.author,
-      this.channelId,
+      {required this.id,
+      required this.title,
+      required this.author,
+      required this.channelId,
       this.uploadDate,
       this.uploadDateRaw,
       this.publishDate,
-      this.description,
+      required this.description,
       this.duration,
-      this.thumbnails,
-      this.keywords,
-      this.engagement,
-      this.isLive,
-      List<MusicData> musicData,
-      [@internal this.watchPage])
+      required this.thumbnails,
+      required this.engagement,
+      required this.isLive,
+      List<MusicData>? musicData = const [],
+      List<String>? keywords = const [],
+      @internal this.watchPage})
       : _musicData = musicData,
+        _keywords = keywords,
         super._();
 
   /// Video ID.
@@ -598,10 +610,6 @@ class _Video extends Video {
   @override
   final ThumbnailSet thumbnails;
 
-  /// Search keywords used for this video.
-  @override
-  final UnmodifiableListView<String> keywords;
-
   /// Engagement statistics for this video.
   @override
   final Engagement engagement;
@@ -612,15 +620,32 @@ class _Video extends Video {
 
   /// Music data such as song, artist, album, and image.
   /// Empty if no data is available.
-  final List<MusicData> _musicData;
+  final List<MusicData>? _musicData;
 
   /// Music data such as song, artist, album, and image.
   /// Empty if no data is available.
   @override
-  List<MusicData> get musicData {
+  @JsonKey()
+  List<MusicData>? get musicData {
+    final value = _musicData;
+    if (value == null) return null;
     if (_musicData is EqualUnmodifiableListView) return _musicData;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_musicData);
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Search keywords used for this video.
+  final List<String>? _keywords;
+
+  /// Search keywords used for this video.
+  @override
+  @JsonKey()
+  List<String>? get keywords {
+    final value = _keywords;
+    if (value == null) return null;
+    if (_keywords is EqualUnmodifiableListView) return _keywords;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
   }
 
   /// Used internally.
@@ -659,12 +684,12 @@ class _Video extends Video {
                 other.duration == duration) &&
             (identical(other.thumbnails, thumbnails) ||
                 other.thumbnails == thumbnails) &&
-            const DeepCollectionEquality().equals(other.keywords, keywords) &&
             (identical(other.engagement, engagement) ||
                 other.engagement == engagement) &&
             (identical(other.isLive, isLive) || other.isLive == isLive) &&
             const DeepCollectionEquality()
                 .equals(other.musicData, _musicData) &&
+            const DeepCollectionEquality().equals(other.keywords, _keywords) &&
             (identical(other.watchPage, watchPage) ||
                 other.watchPage == watchPage));
   }
@@ -683,16 +708,16 @@ class _Video extends Video {
         description,
         duration,
         thumbnails,
-        const DeepCollectionEquality().hash(keywords),
         engagement,
         isLive,
         const DeepCollectionEquality().hash(_musicData),
+        const DeepCollectionEquality().hash(_keywords),
         watchPage);
   }
 
   @override
   String toString() {
-    return 'Video._internal(id: $id, title: $title, author: $author, channelId: $channelId, uploadDate: $uploadDate, uploadDateRaw: $uploadDateRaw, publishDate: $publishDate, description: $description, duration: $duration, thumbnails: $thumbnails, keywords: $keywords, engagement: $engagement, isLive: $isLive, musicData: $musicData, watchPage: $watchPage)';
+    return 'Video(id: $id, title: $title, author: $author, channelId: $channelId, uploadDate: $uploadDate, uploadDateRaw: $uploadDateRaw, publishDate: $publishDate, description: $description, duration: $duration, thumbnails: $thumbnails, engagement: $engagement, isLive: $isLive, musicData: $musicData, keywords: $keywords, watchPage: $watchPage)';
   }
 }
 
@@ -713,12 +738,14 @@ abstract mixin class _$VideoCopyWith<$Res> implements $VideoCopyWith<$Res> {
       String description,
       Duration? duration,
       ThumbnailSet thumbnails,
-      UnmodifiableListView<String> keywords,
       Engagement engagement,
       bool isLive,
-      List<MusicData> musicData,
+      List<MusicData>? musicData,
+      List<String>? keywords,
       @internal WatchPage? watchPage});
 
+  @override
+  $VideoIdCopyWith<$Res> get id;
   @override
   $ChannelIdCopyWith<$Res> get channelId;
   @override
@@ -749,74 +776,84 @@ class __$VideoCopyWithImpl<$Res> implements _$VideoCopyWith<$Res> {
     Object? description = null,
     Object? duration = freezed,
     Object? thumbnails = null,
-    Object? keywords = null,
     Object? engagement = null,
     Object? isLive = null,
-    Object? musicData = null,
+    Object? musicData = freezed,
+    Object? keywords = freezed,
     Object? watchPage = freezed,
   }) {
     return _then(_Video(
-      null == id
+      id: null == id
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as VideoId,
-      null == title
+      title: null == title
           ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      null == author
+      author: null == author
           ? _self.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
-      null == channelId
+      channelId: null == channelId
           ? _self.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
               as ChannelId,
-      freezed == uploadDate
+      uploadDate: freezed == uploadDate
           ? _self.uploadDate
           : uploadDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      freezed == uploadDateRaw
+      uploadDateRaw: freezed == uploadDateRaw
           ? _self.uploadDateRaw
           : uploadDateRaw // ignore: cast_nullable_to_non_nullable
               as String?,
-      freezed == publishDate
+      publishDate: freezed == publishDate
           ? _self.publishDate
           : publishDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      null == description
+      description: null == description
           ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      freezed == duration
+      duration: freezed == duration
           ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration?,
-      null == thumbnails
+      thumbnails: null == thumbnails
           ? _self.thumbnails
           : thumbnails // ignore: cast_nullable_to_non_nullable
               as ThumbnailSet,
-      null == keywords
-          ? _self.keywords
-          : keywords // ignore: cast_nullable_to_non_nullable
-              as UnmodifiableListView<String>,
-      null == engagement
+      engagement: null == engagement
           ? _self.engagement
           : engagement // ignore: cast_nullable_to_non_nullable
               as Engagement,
-      null == isLive
+      isLive: null == isLive
           ? _self.isLive
           : isLive // ignore: cast_nullable_to_non_nullable
               as bool,
-      null == musicData
+      musicData: freezed == musicData
           ? _self._musicData
           : musicData // ignore: cast_nullable_to_non_nullable
-              as List<MusicData>,
-      freezed == watchPage
+              as List<MusicData>?,
+      keywords: freezed == keywords
+          ? _self._keywords
+          : keywords // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      watchPage: freezed == watchPage
           ? _self.watchPage
           : watchPage // ignore: cast_nullable_to_non_nullable
               as WatchPage?,
     ));
+  }
+
+  /// Create a copy of Video
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoIdCopyWith<$Res> get id {
+    return $VideoIdCopyWith<$Res>(_self.id, (value) {
+      return _then(_self.copyWith(id: value));
+    });
   }
 
   /// Create a copy of Video

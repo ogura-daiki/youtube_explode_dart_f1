@@ -43,33 +43,33 @@ class VideoClient {
     final playerResponse = watchPage.playerResponse!;
 
     return Video(
-      videoId,
-      playerResponse.videoTitle,
-      playerResponse.videoAuthor,
-      ChannelId(playerResponse.videoChannelId),
-      playerResponse.videoUploadDate ??
+      id: videoId,
+      title: playerResponse.videoTitle,
+      author: playerResponse.videoAuthor,
+      channelId: ChannelId(playerResponse.videoChannelId),
+      uploadDate: playerResponse.videoUploadDate ??
           watchPage.root
               .querySelector('meta[itemprop=uploadDate]')
               ?.attributes['content']
               .tryParseDateTime(),
-      playerResponse.videoUploadDate.toString(),
-      playerResponse.videoPublishDate ??
+      uploadDateRaw: playerResponse.videoUploadDate.toString(),
+      publishDate: playerResponse.videoPublishDate ??
           watchPage.root
               .querySelector('meta[itemprop=datePublished]')
               ?.attributes['content']
               .tryParseDateTime(),
-      playerResponse.videoDescription,
-      playerResponse.videoDuration,
-      ThumbnailSet(videoId.value),
-      playerResponse.videoKeywords,
-      Engagement(
+      description: playerResponse.videoDescription,
+      duration: playerResponse.videoDuration,
+      thumbnails: ThumbnailSet(videoId.value),
+      keywords: playerResponse.videoKeywords,
+      engagement: Engagement(
         playerResponse.videoViewCount,
         watchPage.videoLikeCount,
         watchPage.videoDislikeCount,
       ),
-      playerResponse.isLive,
-      watchPage.initialData.getMusicData() ?? [],
-      watchPage,
+      isLive: playerResponse.isLive,
+      musicData: watchPage.initialData.getMusicData() ?? [],
+      watchPage: watchPage,
     );
   }
 

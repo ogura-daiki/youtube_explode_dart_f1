@@ -15,11 +15,12 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$VideoId {
-  /// ID as string.
-  String get value;
-
-  /// Serializes this VideoId to a JSON map.
-  Map<String, dynamic> toJson();
+  /// Create a copy of VideoId
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $VideoIdCopyWith<VideoId> get copyWith =>
+      _$VideoIdCopyWithImpl<VideoId>(this as VideoId, _$identity);
 
   @override
   bool operator ==(Object other) {
@@ -39,6 +40,37 @@ mixin _$VideoId {
   }
 }
 
+/// @nodoc
+abstract mixin class $VideoIdCopyWith<$Res> {
+  factory $VideoIdCopyWith(VideoId value, $Res Function(VideoId) _then) =
+      _$VideoIdCopyWithImpl;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$VideoIdCopyWithImpl<$Res> implements $VideoIdCopyWith<$Res> {
+  _$VideoIdCopyWithImpl(this._self, this._then);
+
+  final VideoId _self;
+  final $Res Function(VideoId) _then;
+
+  /// Create a copy of VideoId
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(VideoId(
+      null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
 /// Adds pattern-matching-related methods to [VideoId].
 extension VideoIdPatterns on VideoId {
   /// A variant of `map` that fallback to returning `orElse`.
@@ -55,13 +87,10 @@ extension VideoIdPatterns on VideoId {
 
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_VideoId value)? _internal,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _VideoId() when _internal != null:
-        return _internal(_that);
       case _:
         return orElse();
     }
@@ -81,13 +110,9 @@ extension VideoIdPatterns on VideoId {
   /// ```
 
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_VideoId value) _internal,
-  }) {
+  TResult map<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _VideoId():
-        return _internal(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -106,13 +131,9 @@ extension VideoIdPatterns on VideoId {
   /// ```
 
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_VideoId value)? _internal,
-  }) {
+  TResult? mapOrNull<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _VideoId() when _internal != null:
-        return _internal(_that);
       case _:
         return null;
     }
@@ -132,13 +153,10 @@ extension VideoIdPatterns on VideoId {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String value)? _internal,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _VideoId() when _internal != null:
-        return _internal(_that.value);
       case _:
         return orElse();
     }
@@ -158,13 +176,9 @@ extension VideoIdPatterns on VideoId {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String value) _internal,
-  }) {
+  TResult when<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _VideoId():
-        return _internal(_that.value);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -183,49 +197,12 @@ extension VideoIdPatterns on VideoId {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String value)? _internal,
-  }) {
+  TResult? whenOrNull<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _VideoId() when _internal != null:
-        return _internal(_that.value);
       case _:
         return null;
     }
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _VideoId extends VideoId {
-  const _VideoId(this.value) : super._();
-  factory _VideoId.fromJson(Map<String, dynamic> json) =>
-      _$VideoIdFromJson(json);
-
-  /// ID as string.
-  @override
-  final String value;
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$VideoIdToJson(
-      this,
-    );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _VideoId &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode {
-    return Object.hash(runtimeType, value);
   }
 }
 

@@ -95,6 +95,8 @@ abstract mixin class $ChannelVideoCopyWith<$Res> {
       String videoThumbnail,
       String videoUploadDate,
       int videoViews});
+
+  $VideoIdCopyWith<$Res> get videoId;
 }
 
 /// @nodoc
@@ -142,6 +144,16 @@ class _$ChannelVideoCopyWithImpl<$Res> implements $ChannelVideoCopyWith<$Res> {
           : videoViews // ignore: cast_nullable_to_non_nullable
               as int,
     ));
+  }
+
+  /// Create a copy of ChannelVideo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoIdCopyWith<$Res> get videoId {
+    return $VideoIdCopyWith<$Res>(_self.videoId, (value) {
+      return _then(_self.copyWith(videoId: value));
+    });
   }
 }
 
@@ -400,6 +412,9 @@ abstract mixin class _$ChannelVideoCopyWith<$Res>
       String videoThumbnail,
       String videoUploadDate,
       int videoViews});
+
+  @override
+  $VideoIdCopyWith<$Res> get videoId;
 }
 
 /// @nodoc
@@ -448,6 +463,16 @@ class __$ChannelVideoCopyWithImpl<$Res>
           : videoViews // ignore: cast_nullable_to_non_nullable
               as int,
     ));
+  }
+
+  /// Create a copy of ChannelVideo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VideoIdCopyWith<$Res> get videoId {
+    return $VideoIdCopyWith<$Res>(_self.videoId, (value) {
+      return _then(_self.copyWith(videoId: value));
+    });
   }
 }
 

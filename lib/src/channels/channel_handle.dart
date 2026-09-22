@@ -6,20 +6,12 @@ part 'channel_handle.freezed.dart';
 
 /// Encapsulates a valid YouTube channel handle,
 /// including the starting @ (at).
-@Freezed(copyWith: false)
+@freezed
 abstract class ChannelHandle with _$ChannelHandle {
   /// Initializes an instance of [ChannelHandle].
-  factory ChannelHandle(String urlOrChannelHandle) {
-    final channelHandle = parseChannelHandle(urlOrChannelHandle);
-    if (channelHandle == null) {
-      throw ArgumentError.value(
-        urlOrChannelHandle,
-        'urlOrChannelHandle',
-        'Invalid ChannelHandle',
-      );
-    }
-    return ChannelHandle._(channelHandle);
-  }
+  @Assert('ChannelHandle.parseChannelHandle(value) != null',
+      'Invalid ChannelHandle')
+  factory ChannelHandle(String value) = _ChannelHandle;
 
   ///  Converts [obj] to a [ChannelHandle] by calling .toString on that object.
   /// If it is already a [ChannelHandle], [obj] is returned
@@ -30,10 +22,7 @@ abstract class ChannelHandle with _$ChannelHandle {
     return ChannelHandle(obj.toString());
   }
 
-  const factory ChannelHandle._(
-    /// Handle as string.
-    String value,
-  ) = _ChannelHandle;
+  const ChannelHandle._();
 
   /// Channel handles must start with @ can contain only letters, numbers, periods, dashes and underscores.
   static final _handleExp = RegExp(r'^@[a-zA-Z0-9\\-_.]+$');

@@ -7,7 +7,7 @@ part 'stream_container.g.dart';
 @freezed
 abstract class StreamContainer with _$StreamContainer {
   /// Initializes an instance of [StreamContainer]
-  const factory StreamContainer._internal(
+  const factory StreamContainer(
     /// Container name.
     /// Can be used as file extension
     String name,
@@ -19,16 +19,16 @@ abstract class StreamContainer with _$StreamContainer {
   const StreamContainer._();
 
   /// MPEG-4 Part 14 (.mp4).
-  static const StreamContainer mp4 = StreamContainer._internal('mp4');
+  static const StreamContainer mp4 = StreamContainer('mp4');
 
   /// Web Media (.webm).
-  static const StreamContainer webM = StreamContainer._internal('webm');
+  static const StreamContainer webM = StreamContainer('webm');
 
   /// 3rd Generation Partnership Project (.3gpp).
-  static const StreamContainer tgpp = StreamContainer._internal('3gpp');
+  static const StreamContainer tgpp = StreamContainer('3gpp');
 
   /// M3U8 (.m3u8).
-  static const StreamContainer m3u8 = StreamContainer._internal('m3u8');
+  static const StreamContainer m3u8 = StreamContainer('m3u8');
 
   /// Parse a container from name.
   factory StreamContainer.parse(String name) {

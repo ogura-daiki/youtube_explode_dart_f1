@@ -45,19 +45,18 @@ class RelatedVideosClient {
     final views = int.tryParse(viewsText?.stripNonDigits() ?? '') ?? 0;
 
     return Video(
-      VideoId(videoId),
-      title,
-      author ?? '',
-      ChannelId(channelId),
-      uploadDate?.toDateTime(),
-      uploadDate,
-      uploadDate?.toDateTime(),
-      '',
-      duration?.toDuration(),
-      ThumbnailSet(videoId),
-      [],
-      Engagement(views, null, null),
-      duration == 'LIVE',
+      id: VideoId(videoId),
+      title: title,
+      author: author ?? '',
+      channelId: ChannelId(channelId),
+      uploadDate: uploadDate?.toDateTime(),
+      uploadDateRaw: uploadDate,
+      publishDate: uploadDate?.toDateTime(),
+      description: '',
+      duration: duration?.toDuration(),
+      thumbnails: ThumbnailSet(videoId),
+      engagement: Engagement(views, null, null),
+      isLive: duration == 'LIVE',
     );
   }
 
@@ -82,19 +81,18 @@ class RelatedVideosClient {
     final views = int.tryParse(viewCountText?.stripNonDigits() ?? '') ?? 0;
 
     return Video(
-      VideoId(videoId),
-      title,
-      author,
-      ChannelId(channelId),
-      uploadDate?.toDateTime(),
-      uploadDate,
-      uploadDate?.toDateTime(),
-      '',
-      duration?.toDuration(),
-      ThumbnailSet(videoId),
-      [],
-      Engagement(views, null, null),
-      false,
+      id: VideoId(videoId),
+      title: title,
+      author: author,
+      channelId: ChannelId(channelId),
+      uploadDate: uploadDate?.toDateTime(),
+      uploadDateRaw: uploadDate,
+      publishDate: uploadDate?.toDateTime(),
+      description: '',
+      duration: duration?.toDuration(),
+      thumbnails: ThumbnailSet(videoId),
+      engagement: Engagement(views, null, null),
+      isLive: false,
     );
   }
 

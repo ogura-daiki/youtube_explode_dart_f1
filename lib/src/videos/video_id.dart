@@ -6,8 +6,9 @@ part 'video_id.freezed.dart';
 part 'video_id.g.dart';
 
 /// Encapsulates a valid YouTube video ID.
-@Freezed(copyWith: false)
-abstract class VideoId with _$VideoId {
+@JsonSerializable()
+@freezed
+class VideoId with _$VideoId {
   static final _regMatchExp = RegExp(r'youtube\..+?/watch.*?v=(.*?)(?:&|/|$)');
   static final _shortMatchExp = RegExp(r'youtu\.be/(.*?)(?:\?|&|/|$)');
   static final _embedMatchExp = RegExp(r'youtube\..+?/embed/(.*?)(?:\?|&|/|$)');
@@ -16,25 +17,15 @@ abstract class VideoId with _$VideoId {
   static final _liveMatchExp = RegExp(r'youtube\..+?/live/(.*?)(?:\?|&|/|$)');
 
   /// Initializes an instance of [VideoId] with a url or video id.
-  factory VideoId(String idOrUrl) {
-    final id = parseVideoId(idOrUrl);
+  VideoId(String value)
+      : value = parseVideoId(value) ??
+            (throw ArgumentError.value(
+              value,
+              'value',
+              'Invalid YouTube video ID or URL',
+            ));
 
-    if (id == null) {
-      throw ArgumentError.value(
-        idOrUrl,
-        'idOrUrl',
-        'Invalid YouTube video ID or URL',
-      );
-    }
-    return VideoId._internal(id);
-  }
-
-  const VideoId._();
-
-  const factory VideoId._internal(
-    /// ID as string.
-    String value,
-  ) = _VideoId;
+  final String value;
 
   ///  Converts [obj] to a [VideoId] by calling .toString on that object.
   /// If it is already a [VideoId], [obj] is returned

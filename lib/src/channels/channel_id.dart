@@ -6,22 +6,18 @@ part 'channel_id.freezed.dart';
 
 /// Encapsulates a valid YouTube channel ID.
 @freezed
-abstract class ChannelId with _$ChannelId {
+class ChannelId with _$ChannelId {
   /// Initializes an instance of [ChannelId]
-  factory ChannelId(String value) {
-    final id = parseChannelId(value);
-    if (id == null) {
-      throw ArgumentError.value(value, 'value', 'Invalid channel id');
-    }
-    return ChannelId._internal(id);
-  }
+  
+  ChannelId(String value)
+      : value = parseChannelId(value) ??
+            (throw ArgumentError.value(
+              value,
+              'value',
+              'Invalid channel id',
+            ));
 
-  const factory ChannelId._internal(
-    /// ID as a string.
-    String value,
-  ) = _ChannelId;
-
-  const ChannelId._();
+  final String value;
 
   ///  Converts [obj] to a [ChannelId] by calling .toString on that object.
   /// If it is already a [ChannelId], [obj] is returned

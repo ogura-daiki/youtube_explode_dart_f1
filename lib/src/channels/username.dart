@@ -5,20 +5,18 @@ import '../extensions/helpers_extension.dart';
 part 'username.freezed.dart';
 
 /// Encapsulates a valid YouTube user name.
-@Freezed(copyWith: false)
-abstract class Username with _$Username {
+@freezed
+class Username with _$Username {
   /// Initializes an instance of [Username].
-  factory Username(String urlOrUsername) {
-    final username = parseUsername(urlOrUsername);
-    if (username == null) {
-      throw ArgumentError.value(
-        urlOrUsername,
-        'urlOrUsername',
-        'Invalid username',
-      );
-    }
-    return Username._(username);
-  }
+  Username(String value)
+      : value = parseUsername(value) ??
+            (throw ArgumentError.value(
+              value,
+              'value',
+              'Invalid username',
+            ));
+
+  final String value;
 
   ///  Converts [obj] to a [Username] by calling .toString on that object.
   /// If it is already a [Username], [obj] is returned
@@ -28,11 +26,6 @@ abstract class Username with _$Username {
     }
     return Username(obj.toString());
   }
-
-  const factory Username._(
-    /// User name as string.
-    String value,
-  ) = _Username;
 
   /// Returns true if the given username is a valid username.
   static bool validateUsername(String name) {

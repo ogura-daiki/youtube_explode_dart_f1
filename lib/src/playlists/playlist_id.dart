@@ -5,8 +5,8 @@ import '../extensions/helpers_extension.dart';
 part 'playlist_id.freezed.dart';
 
 /// Encapsulates a valid YouTube playlist ID.
-@Freezed(copyWith: false)
-abstract class PlaylistId with _$PlaylistId {
+@freezed
+class PlaylistId with _$PlaylistId {
   static final _regMatchExp =
       RegExp(r'youtube\..+?/playlist.*?list=(.*?)(?:&|/|$)');
   static final _compositeMatchExp =
@@ -17,20 +17,15 @@ abstract class PlaylistId with _$PlaylistId {
       RegExp(r'youtube\..+?/embed/.*?/.*?list=(.*?)(?:&|/|$)');
 
   /// Initializes an instance of [PlaylistId]
-  factory PlaylistId(String idOrUrl) {
-    final id = parsePlaylistId(idOrUrl);
-    if (id == null) {
-      throw ArgumentError.value(idOrUrl, 'idOrUrl', 'Invalid url');
-    }
-    return PlaylistId._internal(id);
-  }
+  PlaylistId(String value)
+      : value = parsePlaylistId(value) ??
+            (throw ArgumentError.value(
+              value,
+              'value',
+              'Invalid url',
+            ));
 
-  const PlaylistId._();
-
-  const factory PlaylistId._internal(
-    /// The playlist id as string.
-    String value,
-  ) = _PlaylistId;
+  final String value;
 
   ///  Converts [obj] to a [PlaylistId] by calling .toString on that object.
   /// If it is already a [PlaylistId], [obj] is returned

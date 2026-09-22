@@ -15,9 +15,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$ChannelId {
-  /// ID as a string.
-  String get value;
-
   /// Create a copy of ChannelId
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -89,13 +86,10 @@ extension ChannelIdPatterns on ChannelId {
 
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChannelId value)? _internal,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _ChannelId() when _internal != null:
-        return _internal(_that);
       case _:
         return orElse();
     }
@@ -115,13 +109,9 @@ extension ChannelIdPatterns on ChannelId {
   /// ```
 
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChannelId value) _internal,
-  }) {
+  TResult map<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _ChannelId():
-        return _internal(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -140,13 +130,9 @@ extension ChannelIdPatterns on ChannelId {
   /// ```
 
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ChannelId value)? _internal,
-  }) {
+  TResult? mapOrNull<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _ChannelId() when _internal != null:
-        return _internal(_that);
       case _:
         return null;
     }
@@ -166,13 +152,10 @@ extension ChannelIdPatterns on ChannelId {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String value)? _internal,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
-      case _ChannelId() when _internal != null:
-        return _internal(_that.value);
       case _:
         return orElse();
     }
@@ -192,13 +175,9 @@ extension ChannelIdPatterns on ChannelId {
   /// ```
 
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String value) _internal,
-  }) {
+  TResult when<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _ChannelId():
-        return _internal(_that.value);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -217,81 +196,12 @@ extension ChannelIdPatterns on ChannelId {
   /// ```
 
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String value)? _internal,
-  }) {
+  TResult? whenOrNull<TResult extends Object?>() {
     final _that = this;
     switch (_that) {
-      case _ChannelId() when _internal != null:
-        return _internal(_that.value);
       case _:
         return null;
     }
-  }
-}
-
-/// @nodoc
-
-class _ChannelId extends ChannelId {
-  const _ChannelId(this.value) : super._();
-
-  /// ID as a string.
-  @override
-  final String value;
-
-  /// Create a copy of ChannelId
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$ChannelIdCopyWith<_ChannelId> get copyWith =>
-      __$ChannelIdCopyWithImpl<_ChannelId>(this, _$identity);
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ChannelId &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode {
-    return Object.hash(runtimeType, value);
-  }
-}
-
-/// @nodoc
-abstract mixin class _$ChannelIdCopyWith<$Res>
-    implements $ChannelIdCopyWith<$Res> {
-  factory _$ChannelIdCopyWith(
-          _ChannelId value, $Res Function(_ChannelId) _then) =
-      __$ChannelIdCopyWithImpl;
-  @override
-  @useResult
-  $Res call({String value});
-}
-
-/// @nodoc
-class __$ChannelIdCopyWithImpl<$Res> implements _$ChannelIdCopyWith<$Res> {
-  __$ChannelIdCopyWithImpl(this._self, this._then);
-
-  final _ChannelId _self;
-  final $Res Function(_ChannelId) _then;
-
-  /// Create a copy of ChannelId
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_ChannelId(
-      null == value
-          ? _self.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
   }
 }
 
