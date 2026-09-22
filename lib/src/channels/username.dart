@@ -5,7 +5,7 @@ import '../extensions/helpers_extension.dart';
 part 'username.freezed.dart';
 
 /// Encapsulates a valid YouTube user name.
-@freezed
+@Freezed(copyWith: false)
 abstract class Username with _$Username {
   /// Initializes an instance of [Username].
   factory Username(String urlOrUsername) {

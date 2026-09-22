@@ -1,7 +1,6 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'channel_about.dart';
@@ -10,6 +9,7 @@ part of 'channel_about.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -47,37 +47,44 @@ mixin _$ChannelAbout {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as ChannelAbout;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ChannelAbout &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.viewCount, viewCount) ||
-                other.viewCount == viewCount) &&
-            (identical(other.joinDate, joinDate) ||
-                other.joinDate == joinDate) &&
-            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, _this.description) ||
+                other.description == _this.description) &&
+            (identical(other.viewCount, _this.viewCount) ||
+                other.viewCount == _this.viewCount) &&
+            (identical(other.joinDate, _this.joinDate) ||
+                other.joinDate == _this.joinDate) &&
+            (identical(other.title, _this.title) ||
+                other.title == _this.title) &&
             const DeepCollectionEquality()
-                .equals(other.thumbnails, thumbnails) &&
-            (identical(other.country, country) || other.country == country) &&
+                .equals(other.thumbnails, _this.thumbnails) &&
+            (identical(other.country, _this.country) ||
+                other.country == _this.country) &&
             const DeepCollectionEquality()
-                .equals(other.channelLinks, channelLinks));
+                .equals(other.channelLinks, _this.channelLinks));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      description,
-      viewCount,
-      joinDate,
-      title,
-      const DeepCollectionEquality().hash(thumbnails),
-      country,
-      const DeepCollectionEquality().hash(channelLinks));
+  int get hashCode {
+    final _this = this as ChannelAbout;
+    return Object.hash(
+        runtimeType,
+        _this.description,
+        _this.viewCount,
+        _this.joinDate,
+        _this.title,
+        const DeepCollectionEquality().hash(_this.thumbnails),
+        _this.country,
+        const DeepCollectionEquality().hash(_this.channelLinks));
+  }
 
   @override
   String toString() {
-    return 'ChannelAbout(description: $description, viewCount: $viewCount, joinDate: $joinDate, title: $title, thumbnails: $thumbnails, country: $country, channelLinks: $channelLinks)';
+    final _this = this as ChannelAbout;
+    return 'ChannelAbout(description: ${_this.description}, viewCount: ${_this.viewCount}, joinDate: ${_this.joinDate}, title: ${_this.title}, thumbnails: ${_this.thumbnails}, country: ${_this.country}, channelLinks: ${_this.channelLinks})';
   }
 }
 
@@ -117,36 +124,220 @@ class _$ChannelAboutCopyWithImpl<$Res> implements $ChannelAboutCopyWith<$Res> {
     Object? country = freezed,
     Object? channelLinks = null,
   }) {
-    return _then(_self.copyWith(
-      description: freezed == description
+    return _then(ChannelAbout(
+      freezed == description
           ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      viewCount: freezed == viewCount
+      freezed == viewCount
           ? _self.viewCount
           : viewCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      joinDate: freezed == joinDate
+      freezed == joinDate
           ? _self.joinDate
           : joinDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: null == title
+      null == title
           ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnails: null == thumbnails
+      null == thumbnails
           ? _self.thumbnails
           : thumbnails // ignore: cast_nullable_to_non_nullable
               as List<Thumbnail>,
-      country: freezed == country
+      freezed == country
           ? _self.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      channelLinks: null == channelLinks
+      null == channelLinks
           ? _self.channelLinks
           : channelLinks // ignore: cast_nullable_to_non_nullable
               as List<ChannelLink>,
     ));
+  }
+}
+
+/// Adds pattern-matching-related methods to [ChannelAbout].
+extension ChannelAboutPatterns on ChannelAbout {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ChannelAbout value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelAbout() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ChannelAbout value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelAbout():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ChannelAbout value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelAbout() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String? description,
+            int? viewCount,
+            String? joinDate,
+            String title,
+            List<Thumbnail> thumbnails,
+            String? country,
+            List<ChannelLink> channelLinks)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelAbout() when $default != null:
+        return $default(_that.description, _that.viewCount, _that.joinDate,
+            _that.title, _that.thumbnails, _that.country, _that.channelLinks);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String? description,
+            int? viewCount,
+            String? joinDate,
+            String title,
+            List<Thumbnail> thumbnails,
+            String? country,
+            List<ChannelLink> channelLinks)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelAbout():
+        return $default(_that.description, _that.viewCount, _that.joinDate,
+            _that.title, _that.thumbnails, _that.country, _that.channelLinks);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String? description,
+            int? viewCount,
+            String? joinDate,
+            String title,
+            List<Thumbnail> thumbnails,
+            String? country,
+            List<ChannelLink> channelLinks)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelAbout() when $default != null:
+        return $default(_that.description, _that.viewCount, _that.joinDate,
+            _that.title, _that.thumbnails, _that.country, _that.channelLinks);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -158,9 +349,9 @@ class _ChannelAbout implements ChannelAbout {
       this.viewCount,
       this.joinDate,
       this.title,
-      final List<Thumbnail> thumbnails,
+      List<Thumbnail> thumbnails,
       this.country,
-      final List<ChannelLink> channelLinks)
+      List<ChannelLink> channelLinks)
       : _thumbnails = thumbnails,
         _channelLinks = channelLinks;
 
@@ -228,22 +419,24 @@ class _ChannelAbout implements ChannelAbout {
                 other.joinDate == joinDate) &&
             (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality()
-                .equals(other._thumbnails, _thumbnails) &&
+                .equals(other.thumbnails, _thumbnails) &&
             (identical(other.country, country) || other.country == country) &&
             const DeepCollectionEquality()
-                .equals(other._channelLinks, _channelLinks));
+                .equals(other.channelLinks, _channelLinks));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      description,
-      viewCount,
-      joinDate,
-      title,
-      const DeepCollectionEquality().hash(_thumbnails),
-      country,
-      const DeepCollectionEquality().hash(_channelLinks));
+  int get hashCode {
+    return Object.hash(
+        runtimeType,
+        description,
+        viewCount,
+        joinDate,
+        title,
+        const DeepCollectionEquality().hash(_thumbnails),
+        country,
+        const DeepCollectionEquality().hash(_channelLinks));
+  }
 
   @override
   String toString() {

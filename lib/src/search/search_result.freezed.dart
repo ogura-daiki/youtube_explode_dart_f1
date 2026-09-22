@@ -1,7 +1,6 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'search_result.dart';
@@ -10,6 +9,7 @@ part of 'search_result.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -31,23 +31,28 @@ mixin _$SearchResult {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as SearchResult;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is SearchResult &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.id, _this.id) &&
             const DeepCollectionEquality()
-                .equals(other.thumbnails, thumbnails));
+                .equals(other.thumbnails, _this.thumbnails));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(thumbnails));
+  int get hashCode {
+    final _this = this as SearchResult;
+    return Object.hash(
+        runtimeType,
+        const DeepCollectionEquality().hash(_this.id),
+        const DeepCollectionEquality().hash(_this.thumbnails));
+  }
 
   @override
   String toString() {
-    return 'SearchResult(id: $id, thumbnails: $thumbnails)';
+    final _this = this as SearchResult;
+    return 'SearchResult(id: ${_this.id}, thumbnails: ${_this.thumbnails})';
   }
 }
 
@@ -83,6 +88,280 @@ class _$SearchResultCopyWithImpl<$Res> implements $SearchResultCopyWith<$Res> {
   }
 }
 
+/// Adds pattern-matching-related methods to [SearchResult].
+extension SearchResultPatterns on SearchResult {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SearchVideo value)? video,
+    TResult Function(SearchPlaylist value)? playlist,
+    TResult Function(SearchChannel value)? channel,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case SearchVideo() when video != null:
+        return video(_that);
+      case SearchPlaylist() when playlist != null:
+        return playlist(_that);
+      case SearchChannel() when channel != null:
+        return channel(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SearchVideo value) video,
+    required TResult Function(SearchPlaylist value) playlist,
+    required TResult Function(SearchChannel value) channel,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case SearchVideo():
+        return video(_that);
+      case SearchPlaylist():
+        return playlist(_that);
+      case SearchChannel():
+        return channel(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SearchVideo value)? video,
+    TResult? Function(SearchPlaylist value)? playlist,
+    TResult? Function(SearchChannel value)? channel,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case SearchVideo() when video != null:
+        return video(_that);
+      case SearchPlaylist() when playlist != null:
+        return playlist(_that);
+      case SearchChannel() when channel != null:
+        return channel(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            VideoId id,
+            String title,
+            String author,
+            String description,
+            String duration,
+            int viewCount,
+            List<Thumbnail> thumbnails,
+            String? uploadDate,
+            bool isLive,
+            String channelId)?
+        video,
+    TResult Function(PlaylistId id, String title, int videoCount,
+            List<Thumbnail> thumbnails)?
+        playlist,
+    TResult Function(ChannelId id, String name, String description,
+            int videoCount, List<Thumbnail> thumbnails)?
+        channel,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case SearchVideo() when video != null:
+        return video(
+            _that.id,
+            _that.title,
+            _that.author,
+            _that.description,
+            _that.duration,
+            _that.viewCount,
+            _that.thumbnails,
+            _that.uploadDate,
+            _that.isLive,
+            _that.channelId);
+      case SearchPlaylist() when playlist != null:
+        return playlist(
+            _that.id, _that.title, _that.videoCount, _that.thumbnails);
+      case SearchChannel() when channel != null:
+        return channel(_that.id, _that.name, _that.description,
+            _that.videoCount, _that.thumbnails);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            VideoId id,
+            String title,
+            String author,
+            String description,
+            String duration,
+            int viewCount,
+            List<Thumbnail> thumbnails,
+            String? uploadDate,
+            bool isLive,
+            String channelId)
+        video,
+    required TResult Function(PlaylistId id, String title, int videoCount,
+            List<Thumbnail> thumbnails)
+        playlist,
+    required TResult Function(ChannelId id, String name, String description,
+            int videoCount, List<Thumbnail> thumbnails)
+        channel,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case SearchVideo():
+        return video(
+            _that.id,
+            _that.title,
+            _that.author,
+            _that.description,
+            _that.duration,
+            _that.viewCount,
+            _that.thumbnails,
+            _that.uploadDate,
+            _that.isLive,
+            _that.channelId);
+      case SearchPlaylist():
+        return playlist(
+            _that.id, _that.title, _that.videoCount, _that.thumbnails);
+      case SearchChannel():
+        return channel(_that.id, _that.name, _that.description,
+            _that.videoCount, _that.thumbnails);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            VideoId id,
+            String title,
+            String author,
+            String description,
+            String duration,
+            int viewCount,
+            List<Thumbnail> thumbnails,
+            String? uploadDate,
+            bool isLive,
+            String channelId)?
+        video,
+    TResult? Function(PlaylistId id, String title, int videoCount,
+            List<Thumbnail> thumbnails)?
+        playlist,
+    TResult? Function(ChannelId id, String name, String description,
+            int videoCount, List<Thumbnail> thumbnails)?
+        channel,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case SearchVideo() when video != null:
+        return video(
+            _that.id,
+            _that.title,
+            _that.author,
+            _that.description,
+            _that.duration,
+            _that.viewCount,
+            _that.thumbnails,
+            _that.uploadDate,
+            _that.isLive,
+            _that.channelId);
+      case SearchPlaylist() when playlist != null:
+        return playlist(
+            _that.id, _that.title, _that.videoCount, _that.thumbnails);
+      case SearchChannel() when channel != null:
+        return channel(_that.id, _that.name, _that.description,
+            _that.videoCount, _that.thumbnails);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
 class SearchVideo extends SearchResult {
@@ -93,7 +372,7 @@ class SearchVideo extends SearchResult {
       this.description,
       this.duration,
       this.viewCount,
-      final List<Thumbnail> thumbnails,
+      List<Thumbnail> thumbnails,
       this.uploadDate,
       this.isLive,
       this.channelId)
@@ -162,7 +441,7 @@ class SearchVideo extends SearchResult {
             (identical(other.viewCount, viewCount) ||
                 other.viewCount == viewCount) &&
             const DeepCollectionEquality()
-                .equals(other._thumbnails, _thumbnails) &&
+                .equals(other.thumbnails, _thumbnails) &&
             (identical(other.uploadDate, uploadDate) ||
                 other.uploadDate == uploadDate) &&
             (identical(other.isLive, isLive) || other.isLive == isLive) &&
@@ -171,18 +450,20 @@ class SearchVideo extends SearchResult {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      author,
-      description,
-      duration,
-      viewCount,
-      const DeepCollectionEquality().hash(_thumbnails),
-      uploadDate,
-      isLive,
-      channelId);
+  int get hashCode {
+    return Object.hash(
+        runtimeType,
+        id,
+        title,
+        author,
+        description,
+        duration,
+        viewCount,
+        const DeepCollectionEquality().hash(_thumbnails),
+        uploadDate,
+        isLive,
+        channelId);
+  }
 
   @override
   String toString() {
@@ -209,8 +490,6 @@ abstract mixin class $SearchVideoCopyWith<$Res>
       String? uploadDate,
       bool isLive,
       String channelId});
-
-  $VideoIdCopyWith<$Res> get id;
 }
 
 /// @nodoc
@@ -279,23 +558,13 @@ class _$SearchVideoCopyWithImpl<$Res> implements $SearchVideoCopyWith<$Res> {
               as String,
     ));
   }
-
-  /// Create a copy of SearchResult
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $VideoIdCopyWith<$Res> get id {
-    return $VideoIdCopyWith<$Res>(_self.id, (value) {
-      return _then(_self.copyWith(id: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class SearchPlaylist extends SearchResult {
   const SearchPlaylist(
-      this.id, this.title, this.videoCount, final List<Thumbnail> thumbnails)
+      this.id, this.title, this.videoCount, List<Thumbnail> thumbnails)
       : _thumbnails = thumbnails,
         super._();
 
@@ -338,12 +607,14 @@ class SearchPlaylist extends SearchResult {
             (identical(other.videoCount, videoCount) ||
                 other.videoCount == videoCount) &&
             const DeepCollectionEquality()
-                .equals(other._thumbnails, _thumbnails));
+                .equals(other.thumbnails, _thumbnails));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, videoCount,
-      const DeepCollectionEquality().hash(_thumbnails));
+  int get hashCode {
+    return Object.hash(runtimeType, id, title, videoCount,
+        const DeepCollectionEquality().hash(_thumbnails));
+  }
 
   @override
   String toString() {
@@ -364,8 +635,6 @@ abstract mixin class $SearchPlaylistCopyWith<$Res>
       String title,
       int videoCount,
       List<Thumbnail> thumbnails});
-
-  $PlaylistIdCopyWith<$Res> get id;
 }
 
 /// @nodoc
@@ -405,23 +674,13 @@ class _$SearchPlaylistCopyWithImpl<$Res>
               as List<Thumbnail>,
     ));
   }
-
-  /// Create a copy of SearchResult
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PlaylistIdCopyWith<$Res> get id {
-    return $PlaylistIdCopyWith<$Res>(_self.id, (value) {
-      return _then(_self.copyWith(id: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class SearchChannel extends SearchResult {
   const SearchChannel(this.id, this.name, this.description, this.videoCount,
-      final List<Thumbnail> thumbnails)
+      List<Thumbnail> thumbnails)
       : _thumbnails = thumbnails,
         super._();
 
@@ -470,12 +729,14 @@ class SearchChannel extends SearchResult {
             (identical(other.videoCount, videoCount) ||
                 other.videoCount == videoCount) &&
             const DeepCollectionEquality()
-                .equals(other._thumbnails, _thumbnails));
+                .equals(other.thumbnails, _thumbnails));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, description,
-      videoCount, const DeepCollectionEquality().hash(_thumbnails));
+  int get hashCode {
+    return Object.hash(runtimeType, id, name, description, videoCount,
+        const DeepCollectionEquality().hash(_thumbnails));
+  }
 
   @override
   String toString() {

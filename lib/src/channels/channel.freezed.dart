@@ -1,7 +1,6 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'channel.dart';
@@ -10,6 +9,7 @@ part of 'channel.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -39,25 +39,32 @@ mixin _$Channel {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as Channel;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Channel &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.logoUrl, logoUrl) || other.logoUrl == logoUrl) &&
-            (identical(other.bannerUrl, bannerUrl) ||
-                other.bannerUrl == bannerUrl) &&
-            (identical(other.subscribersCount, subscribersCount) ||
-                other.subscribersCount == subscribersCount));
+            (identical(other.id, _this.id) || other.id == _this.id) &&
+            (identical(other.title, _this.title) ||
+                other.title == _this.title) &&
+            (identical(other.logoUrl, _this.logoUrl) ||
+                other.logoUrl == _this.logoUrl) &&
+            (identical(other.bannerUrl, _this.bannerUrl) ||
+                other.bannerUrl == _this.bannerUrl) &&
+            (identical(other.subscribersCount, _this.subscribersCount) ||
+                other.subscribersCount == _this.subscribersCount));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, logoUrl, bannerUrl, subscribersCount);
+  int get hashCode {
+    final _this = this as Channel;
+    return Object.hash(runtimeType, _this.id, _this.title, _this.logoUrl,
+        _this.bannerUrl, _this.subscribersCount);
+  }
 
   @override
   String toString() {
-    return 'Channel(id: $id, title: $title, logoUrl: $logoUrl, bannerUrl: $bannerUrl, subscribersCount: $subscribersCount)';
+    final _this = this as Channel;
+    return 'Channel(id: ${_this.id}, title: ${_this.title}, logoUrl: ${_this.logoUrl}, bannerUrl: ${_this.bannerUrl}, subscribersCount: ${_this.subscribersCount})';
   }
 }
 
@@ -94,24 +101,24 @@ class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
     Object? bannerUrl = null,
     Object? subscribersCount = freezed,
   }) {
-    return _then(_self.copyWith(
-      id: null == id
+    return _then(Channel(
+      null == id
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as ChannelId,
-      title: null == title
+      null == title
           ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      logoUrl: null == logoUrl
+      null == logoUrl
           ? _self.logoUrl
           : logoUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      bannerUrl: null == bannerUrl
+      null == bannerUrl
           ? _self.bannerUrl
           : bannerUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      subscribersCount: freezed == subscribersCount
+      freezed == subscribersCount
           ? _self.subscribersCount
           : subscribersCount // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -126,6 +133,172 @@ class _$ChannelCopyWithImpl<$Res> implements $ChannelCopyWith<$Res> {
     return $ChannelIdCopyWith<$Res>(_self.id, (value) {
       return _then(_self.copyWith(id: value));
     });
+  }
+}
+
+/// Adds pattern-matching-related methods to [Channel].
+extension ChannelPatterns on Channel {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Channel value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Channel() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Channel value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Channel():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Channel value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Channel() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(ChannelId id, String title, String logoUrl,
+            String bannerUrl, int? subscribersCount)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Channel() when $default != null:
+        return $default(_that.id, _that.title, _that.logoUrl, _that.bannerUrl,
+            _that.subscribersCount);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(ChannelId id, String title, String logoUrl,
+            String bannerUrl, int? subscribersCount)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Channel():
+        return $default(_that.id, _that.title, _that.logoUrl, _that.bannerUrl,
+            _that.subscribersCount);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(ChannelId id, String title, String logoUrl,
+            String bannerUrl, int? subscribersCount)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Channel() when $default != null:
+        return $default(_that.id, _that.title, _that.logoUrl, _that.bannerUrl,
+            _that.subscribersCount);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -179,8 +352,10 @@ class _Channel extends Channel {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, logoUrl, bannerUrl, subscribersCount);
+  int get hashCode {
+    return Object.hash(
+        runtimeType, id, title, logoUrl, bannerUrl, subscribersCount);
+  }
 
   @override
   String toString() {

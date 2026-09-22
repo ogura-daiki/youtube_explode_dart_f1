@@ -1,7 +1,6 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'video_id.dart';
@@ -10,6 +9,7 @@ part of 'video_id.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -18,57 +18,181 @@ mixin _$VideoId {
   /// ID as string.
   String get value;
 
-  /// Create a copy of VideoId
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $VideoIdCopyWith<VideoId> get copyWith =>
-      _$VideoIdCopyWithImpl<VideoId>(this as VideoId, _$identity);
-
   /// Serializes this VideoId to a JSON map.
   Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
+    final _this = this as VideoId;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is VideoId &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.value, _this.value) ||
+                other.value == _this.value));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode {
+    final _this = this as VideoId;
+    return Object.hash(runtimeType, _this.value);
+  }
 }
 
-/// @nodoc
-abstract mixin class $VideoIdCopyWith<$Res> {
-  factory $VideoIdCopyWith(VideoId value, $Res Function(VideoId) _then) =
-      _$VideoIdCopyWithImpl;
-  @useResult
-  $Res call({String value});
-}
+/// Adds pattern-matching-related methods to [VideoId].
+extension VideoIdPatterns on VideoId {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-/// @nodoc
-class _$VideoIdCopyWithImpl<$Res> implements $VideoIdCopyWith<$Res> {
-  _$VideoIdCopyWithImpl(this._self, this._then);
-
-  final VideoId _self;
-  final $Res Function(VideoId) _then;
-
-  /// Create a copy of VideoId
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_VideoId value)? _internal,
+    required TResult orElse(),
   }) {
-    return _then(_self.copyWith(
-      value: null == value
-          ? _self.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    final _that = this;
+    switch (_that) {
+      case _VideoId() when _internal != null:
+        return _internal(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_VideoId value) _internal,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _VideoId():
+        return _internal(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_VideoId value)? _internal,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _VideoId() when _internal != null:
+        return _internal(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value)? _internal,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _VideoId() when _internal != null:
+        return _internal(_that.value);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value) _internal,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _VideoId():
+        return _internal(_that.value);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String value)? _internal,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _VideoId() when _internal != null:
+        return _internal(_that.value);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -82,14 +206,6 @@ class _VideoId extends VideoId {
   /// ID as string.
   @override
   final String value;
-
-  /// Create a copy of VideoId
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$VideoIdCopyWith<_VideoId> get copyWith =>
-      __$VideoIdCopyWithImpl<_VideoId>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -108,38 +224,8 @@ class _VideoId extends VideoId {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, value);
-}
-
-/// @nodoc
-abstract mixin class _$VideoIdCopyWith<$Res> implements $VideoIdCopyWith<$Res> {
-  factory _$VideoIdCopyWith(_VideoId value, $Res Function(_VideoId) _then) =
-      __$VideoIdCopyWithImpl;
-  @override
-  @useResult
-  $Res call({String value});
-}
-
-/// @nodoc
-class __$VideoIdCopyWithImpl<$Res> implements _$VideoIdCopyWith<$Res> {
-  __$VideoIdCopyWithImpl(this._self, this._then);
-
-  final _VideoId _self;
-  final $Res Function(_VideoId) _then;
-
-  /// Create a copy of VideoId
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_VideoId(
-      null == value
-          ? _self.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  int get hashCode {
+    return Object.hash(runtimeType, value);
   }
 }
 

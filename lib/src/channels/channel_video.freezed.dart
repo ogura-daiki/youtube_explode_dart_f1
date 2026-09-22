@@ -1,7 +1,6 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'channel_video.dart';
@@ -10,6 +9,7 @@ part of 'channel_video.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -44,29 +44,41 @@ mixin _$ChannelVideo {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as ChannelVideo;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ChannelVideo &&
-            (identical(other.videoId, videoId) || other.videoId == videoId) &&
-            (identical(other.videoTitle, videoTitle) ||
-                other.videoTitle == videoTitle) &&
-            (identical(other.videoDuration, videoDuration) ||
-                other.videoDuration == videoDuration) &&
-            (identical(other.videoThumbnail, videoThumbnail) ||
-                other.videoThumbnail == videoThumbnail) &&
-            (identical(other.videoUploadDate, videoUploadDate) ||
-                other.videoUploadDate == videoUploadDate) &&
-            (identical(other.videoViews, videoViews) ||
-                other.videoViews == videoViews));
+            (identical(other.videoId, _this.videoId) ||
+                other.videoId == _this.videoId) &&
+            (identical(other.videoTitle, _this.videoTitle) ||
+                other.videoTitle == _this.videoTitle) &&
+            (identical(other.videoDuration, _this.videoDuration) ||
+                other.videoDuration == _this.videoDuration) &&
+            (identical(other.videoThumbnail, _this.videoThumbnail) ||
+                other.videoThumbnail == _this.videoThumbnail) &&
+            (identical(other.videoUploadDate, _this.videoUploadDate) ||
+                other.videoUploadDate == _this.videoUploadDate) &&
+            (identical(other.videoViews, _this.videoViews) ||
+                other.videoViews == _this.videoViews));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, videoId, videoTitle,
-      videoDuration, videoThumbnail, videoUploadDate, videoViews);
+  int get hashCode {
+    final _this = this as ChannelVideo;
+    return Object.hash(
+        runtimeType,
+        _this.videoId,
+        _this.videoTitle,
+        _this.videoDuration,
+        _this.videoThumbnail,
+        _this.videoUploadDate,
+        _this.videoViews);
+  }
 
   @override
   String toString() {
-    return 'ChannelVideo(videoId: $videoId, videoTitle: $videoTitle, videoDuration: $videoDuration, videoThumbnail: $videoThumbnail, videoUploadDate: $videoUploadDate, videoViews: $videoViews)';
+    final _this = this as ChannelVideo;
+    return 'ChannelVideo(videoId: ${_this.videoId}, videoTitle: ${_this.videoTitle}, videoDuration: ${_this.videoDuration}, videoThumbnail: ${_this.videoThumbnail}, videoUploadDate: ${_this.videoUploadDate}, videoViews: ${_this.videoViews})';
   }
 }
 
@@ -83,8 +95,6 @@ abstract mixin class $ChannelVideoCopyWith<$Res> {
       String videoThumbnail,
       String videoUploadDate,
       int videoViews});
-
-  $VideoIdCopyWith<$Res> get videoId;
 }
 
 /// @nodoc
@@ -106,42 +116,203 @@ class _$ChannelVideoCopyWithImpl<$Res> implements $ChannelVideoCopyWith<$Res> {
     Object? videoUploadDate = null,
     Object? videoViews = null,
   }) {
-    return _then(_self.copyWith(
-      videoId: null == videoId
+    return _then(ChannelVideo(
+      null == videoId
           ? _self.videoId
           : videoId // ignore: cast_nullable_to_non_nullable
               as VideoId,
-      videoTitle: null == videoTitle
+      null == videoTitle
           ? _self.videoTitle
           : videoTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      videoDuration: null == videoDuration
+      null == videoDuration
           ? _self.videoDuration
           : videoDuration // ignore: cast_nullable_to_non_nullable
               as Duration,
-      videoThumbnail: null == videoThumbnail
+      null == videoThumbnail
           ? _self.videoThumbnail
           : videoThumbnail // ignore: cast_nullable_to_non_nullable
               as String,
-      videoUploadDate: null == videoUploadDate
+      null == videoUploadDate
           ? _self.videoUploadDate
           : videoUploadDate // ignore: cast_nullable_to_non_nullable
               as String,
-      videoViews: null == videoViews
+      null == videoViews
           ? _self.videoViews
           : videoViews // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
+}
 
-  /// Create a copy of ChannelVideo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $VideoIdCopyWith<$Res> get videoId {
-    return $VideoIdCopyWith<$Res>(_self.videoId, (value) {
-      return _then(_self.copyWith(videoId: value));
-    });
+/// Adds pattern-matching-related methods to [ChannelVideo].
+extension ChannelVideoPatterns on ChannelVideo {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ChannelVideo value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelVideo() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ChannelVideo value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelVideo():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ChannelVideo value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelVideo() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(VideoId videoId, String videoTitle, Duration videoDuration,
+            String videoThumbnail, String videoUploadDate, int videoViews)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelVideo() when $default != null:
+        return $default(_that.videoId, _that.videoTitle, _that.videoDuration,
+            _that.videoThumbnail, _that.videoUploadDate, _that.videoViews);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(VideoId videoId, String videoTitle, Duration videoDuration,
+            String videoThumbnail, String videoUploadDate, int videoViews)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelVideo():
+        return $default(_that.videoId, _that.videoTitle, _that.videoDuration,
+            _that.videoThumbnail, _that.videoUploadDate, _that.videoViews);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            VideoId videoId,
+            String videoTitle,
+            Duration videoDuration,
+            String videoThumbnail,
+            String videoUploadDate,
+            int videoViews)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelVideo() when $default != null:
+        return $default(_that.videoId, _that.videoTitle, _that.videoDuration,
+            _that.videoThumbnail, _that.videoUploadDate, _that.videoViews);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -203,8 +374,10 @@ class _ChannelVideo implements ChannelVideo {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, videoId, videoTitle,
-      videoDuration, videoThumbnail, videoUploadDate, videoViews);
+  int get hashCode {
+    return Object.hash(runtimeType, videoId, videoTitle, videoDuration,
+        videoThumbnail, videoUploadDate, videoViews);
+  }
 
   @override
   String toString() {
@@ -227,9 +400,6 @@ abstract mixin class _$ChannelVideoCopyWith<$Res>
       String videoThumbnail,
       String videoUploadDate,
       int videoViews});
-
-  @override
-  $VideoIdCopyWith<$Res> get videoId;
 }
 
 /// @nodoc
@@ -278,16 +448,6 @@ class __$ChannelVideoCopyWithImpl<$Res>
           : videoViews // ignore: cast_nullable_to_non_nullable
               as int,
     ));
-  }
-
-  /// Create a copy of ChannelVideo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $VideoIdCopyWith<$Res> get videoId {
-    return $VideoIdCopyWith<$Res>(_self.videoId, (value) {
-      return _then(_self.copyWith(videoId: value));
-    });
   }
 }
 

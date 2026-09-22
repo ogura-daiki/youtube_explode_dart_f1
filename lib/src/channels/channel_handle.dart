@@ -6,7 +6,7 @@ part 'channel_handle.freezed.dart';
 
 /// Encapsulates a valid YouTube channel handle,
 /// including the starting @ (at).
-@freezed
+@Freezed(copyWith: false)
 abstract class ChannelHandle with _$ChannelHandle {
   /// Initializes an instance of [ChannelHandle].
   factory ChannelHandle(String urlOrChannelHandle) {

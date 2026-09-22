@@ -5,7 +5,7 @@ import '../extensions/helpers_extension.dart';
 part 'playlist_id.freezed.dart';
 
 /// Encapsulates a valid YouTube playlist ID.
-@freezed
+@Freezed(copyWith: false)
 abstract class PlaylistId with _$PlaylistId {
   static final _regMatchExp =
       RegExp(r'youtube\..+?/playlist.*?list=(.*?)(?:&|/|$)');

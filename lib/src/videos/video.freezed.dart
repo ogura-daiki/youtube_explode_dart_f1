@@ -1,7 +1,6 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'video.dart';
@@ -10,6 +9,7 @@ part of 'video.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -52,10 +52,10 @@ mixin _$Video {
   Engagement get engagement;
 
   /// Returns true if this is a live stream.
-//ignore: avoid_positional_boolean_parameters
   bool get isLive;
 
   /// Music data such as song, artist, album, and image.
+  /// Empty if no data is available.
   List<MusicData> get musicData;
 
   /// Used internally.
@@ -72,57 +72,67 @@ mixin _$Video {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as Video;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Video &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.author, author) || other.author == author) &&
-            (identical(other.channelId, channelId) ||
-                other.channelId == channelId) &&
-            (identical(other.uploadDate, uploadDate) ||
-                other.uploadDate == uploadDate) &&
-            (identical(other.uploadDateRaw, uploadDateRaw) ||
-                other.uploadDateRaw == uploadDateRaw) &&
-            (identical(other.publishDate, publishDate) ||
-                other.publishDate == publishDate) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.duration, duration) ||
-                other.duration == duration) &&
-            (identical(other.thumbnails, thumbnails) ||
-                other.thumbnails == thumbnails) &&
-            const DeepCollectionEquality().equals(other.keywords, keywords) &&
-            (identical(other.engagement, engagement) ||
-                other.engagement == engagement) &&
-            (identical(other.isLive, isLive) || other.isLive == isLive) &&
-            const DeepCollectionEquality().equals(other.musicData, musicData) &&
-            (identical(other.watchPage, watchPage) ||
-                other.watchPage == watchPage));
+            (identical(other.id, _this.id) || other.id == _this.id) &&
+            (identical(other.title, _this.title) ||
+                other.title == _this.title) &&
+            (identical(other.author, _this.author) ||
+                other.author == _this.author) &&
+            (identical(other.channelId, _this.channelId) ||
+                other.channelId == _this.channelId) &&
+            (identical(other.uploadDate, _this.uploadDate) ||
+                other.uploadDate == _this.uploadDate) &&
+            (identical(other.uploadDateRaw, _this.uploadDateRaw) ||
+                other.uploadDateRaw == _this.uploadDateRaw) &&
+            (identical(other.publishDate, _this.publishDate) ||
+                other.publishDate == _this.publishDate) &&
+            (identical(other.description, _this.description) ||
+                other.description == _this.description) &&
+            (identical(other.duration, _this.duration) ||
+                other.duration == _this.duration) &&
+            (identical(other.thumbnails, _this.thumbnails) ||
+                other.thumbnails == _this.thumbnails) &&
+            const DeepCollectionEquality()
+                .equals(other.keywords, _this.keywords) &&
+            (identical(other.engagement, _this.engagement) ||
+                other.engagement == _this.engagement) &&
+            (identical(other.isLive, _this.isLive) ||
+                other.isLive == _this.isLive) &&
+            const DeepCollectionEquality()
+                .equals(other.musicData, _this.musicData) &&
+            (identical(other.watchPage, _this.watchPage) ||
+                other.watchPage == _this.watchPage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      author,
-      channelId,
-      uploadDate,
-      uploadDateRaw,
-      publishDate,
-      description,
-      duration,
-      thumbnails,
-      const DeepCollectionEquality().hash(keywords),
-      engagement,
-      isLive,
-      const DeepCollectionEquality().hash(musicData),
-      watchPage);
+  int get hashCode {
+    final _this = this as Video;
+    return Object.hash(
+        runtimeType,
+        _this.id,
+        _this.title,
+        _this.author,
+        _this.channelId,
+        _this.uploadDate,
+        _this.uploadDateRaw,
+        _this.publishDate,
+        _this.description,
+        _this.duration,
+        _this.thumbnails,
+        const DeepCollectionEquality().hash(_this.keywords),
+        _this.engagement,
+        _this.isLive,
+        const DeepCollectionEquality().hash(_this.musicData),
+        _this.watchPage);
+  }
 
   @override
   String toString() {
-    return 'Video(id: $id, title: $title, author: $author, channelId: $channelId, uploadDate: $uploadDate, uploadDateRaw: $uploadDateRaw, publishDate: $publishDate, description: $description, duration: $duration, thumbnails: $thumbnails, keywords: $keywords, engagement: $engagement, isLive: $isLive, musicData: $musicData, watchPage: $watchPage)';
+    final _this = this as Video;
+    return 'Video(id: ${_this.id}, title: ${_this.title}, author: ${_this.author}, channelId: ${_this.channelId}, uploadDate: ${_this.uploadDate}, uploadDateRaw: ${_this.uploadDateRaw}, publishDate: ${_this.publishDate}, description: ${_this.description}, duration: ${_this.duration}, thumbnails: ${_this.thumbnails}, keywords: ${_this.keywords}, engagement: ${_this.engagement}, isLive: ${_this.isLive}, musicData: ${_this.musicData}, watchPage: ${_this.watchPage})';
   }
 }
 
@@ -148,7 +158,6 @@ abstract mixin class $VideoCopyWith<$Res> {
       List<MusicData> musicData,
       @internal WatchPage? watchPage});
 
-  $VideoIdCopyWith<$Res> get id;
   $ChannelIdCopyWith<$Res> get channelId;
   $ThumbnailSetCopyWith<$Res> get thumbnails;
   $EngagementCopyWith<$Res> get engagement;
@@ -182,78 +191,68 @@ class _$VideoCopyWithImpl<$Res> implements $VideoCopyWith<$Res> {
     Object? musicData = null,
     Object? watchPage = freezed,
   }) {
-    return _then(_self.copyWith(
-      id: null == id
+    return _then(Video(
+      null == id
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as VideoId,
-      title: null == title
+      null == title
           ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      author: null == author
+      null == author
           ? _self.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
-      channelId: null == channelId
+      null == channelId
           ? _self.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
               as ChannelId,
-      uploadDate: freezed == uploadDate
+      freezed == uploadDate
           ? _self.uploadDate
           : uploadDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      uploadDateRaw: freezed == uploadDateRaw
+      freezed == uploadDateRaw
           ? _self.uploadDateRaw
           : uploadDateRaw // ignore: cast_nullable_to_non_nullable
               as String?,
-      publishDate: freezed == publishDate
+      freezed == publishDate
           ? _self.publishDate
           : publishDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      description: null == description
+      null == description
           ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      duration: freezed == duration
+      freezed == duration
           ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration?,
-      thumbnails: null == thumbnails
+      null == thumbnails
           ? _self.thumbnails
           : thumbnails // ignore: cast_nullable_to_non_nullable
               as ThumbnailSet,
-      keywords: null == keywords
-          ? _self.keywords
+      freezed == keywords
+          ? _self.keywords!
           : keywords // ignore: cast_nullable_to_non_nullable
-              as UnmodifiableListView<String>,
-      engagement: null == engagement
+              as Iterable<String>?,
+      null == engagement
           ? _self.engagement
           : engagement // ignore: cast_nullable_to_non_nullable
               as Engagement,
-      isLive: null == isLive
+      null == isLive
           ? _self.isLive
           : isLive // ignore: cast_nullable_to_non_nullable
               as bool,
-      musicData: null == musicData
+      null == musicData
           ? _self.musicData
           : musicData // ignore: cast_nullable_to_non_nullable
               as List<MusicData>,
-      watchPage: freezed == watchPage
+      freezed == watchPage
           ? _self.watchPage
           : watchPage // ignore: cast_nullable_to_non_nullable
               as WatchPage?,
     ));
-  }
-
-  /// Create a copy of Video
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $VideoIdCopyWith<$Res> get id {
-    return $VideoIdCopyWith<$Res>(_self.id, (value) {
-      return _then(_self.copyWith(id: value));
-    });
   }
 
   /// Create a copy of Video
@@ -287,6 +286,256 @@ class _$VideoCopyWithImpl<$Res> implements $VideoCopyWith<$Res> {
   }
 }
 
+/// Adds pattern-matching-related methods to [Video].
+extension VideoPatterns on Video {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Video value)? _internal,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Video() when _internal != null:
+        return _internal(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Video value) _internal,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Video():
+        return _internal(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Video value)? _internal,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Video() when _internal != null:
+        return _internal(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            VideoId id,
+            String title,
+            String author,
+            ChannelId channelId,
+            DateTime? uploadDate,
+            String? uploadDateRaw,
+            DateTime? publishDate,
+            String description,
+            Duration? duration,
+            ThumbnailSet thumbnails,
+            UnmodifiableListView<String> keywords,
+            Engagement engagement,
+            bool isLive,
+            List<MusicData> musicData,
+            @internal WatchPage? watchPage)?
+        _internal,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Video() when _internal != null:
+        return _internal(
+            _that.id,
+            _that.title,
+            _that.author,
+            _that.channelId,
+            _that.uploadDate,
+            _that.uploadDateRaw,
+            _that.publishDate,
+            _that.description,
+            _that.duration,
+            _that.thumbnails,
+            _that.keywords,
+            _that.engagement,
+            _that.isLive,
+            _that.musicData,
+            _that.watchPage);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            VideoId id,
+            String title,
+            String author,
+            ChannelId channelId,
+            DateTime? uploadDate,
+            String? uploadDateRaw,
+            DateTime? publishDate,
+            String description,
+            Duration? duration,
+            ThumbnailSet thumbnails,
+            UnmodifiableListView<String> keywords,
+            Engagement engagement,
+            bool isLive,
+            List<MusicData> musicData,
+            @internal WatchPage? watchPage)
+        _internal,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Video():
+        return _internal(
+            _that.id,
+            _that.title,
+            _that.author,
+            _that.channelId,
+            _that.uploadDate,
+            _that.uploadDateRaw,
+            _that.publishDate,
+            _that.description,
+            _that.duration,
+            _that.thumbnails,
+            _that.keywords,
+            _that.engagement,
+            _that.isLive,
+            _that.musicData,
+            _that.watchPage);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            VideoId id,
+            String title,
+            String author,
+            ChannelId channelId,
+            DateTime? uploadDate,
+            String? uploadDateRaw,
+            DateTime? publishDate,
+            String description,
+            Duration? duration,
+            ThumbnailSet thumbnails,
+            UnmodifiableListView<String> keywords,
+            Engagement engagement,
+            bool isLive,
+            List<MusicData> musicData,
+            @internal WatchPage? watchPage)?
+        _internal,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Video() when _internal != null:
+        return _internal(
+            _that.id,
+            _that.title,
+            _that.author,
+            _that.channelId,
+            _that.uploadDate,
+            _that.uploadDateRaw,
+            _that.publishDate,
+            _that.description,
+            _that.duration,
+            _that.thumbnails,
+            _that.keywords,
+            _that.engagement,
+            _that.isLive,
+            _that.musicData,
+            _that.watchPage);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
 class _Video extends Video {
@@ -304,7 +553,7 @@ class _Video extends Video {
       this.keywords,
       this.engagement,
       this.isLive,
-      final List<MusicData> musicData,
+      List<MusicData> musicData,
       [@internal this.watchPage])
       : _musicData = musicData,
         super._();
@@ -358,14 +607,15 @@ class _Video extends Video {
   final Engagement engagement;
 
   /// Returns true if this is a live stream.
-//ignore: avoid_positional_boolean_parameters
   @override
   final bool isLive;
 
   /// Music data such as song, artist, album, and image.
+  /// Empty if no data is available.
   final List<MusicData> _musicData;
 
   /// Music data such as song, artist, album, and image.
+  /// Empty if no data is available.
   @override
   List<MusicData> get musicData {
     if (_musicData is EqualUnmodifiableListView) return _musicData;
@@ -414,29 +664,31 @@ class _Video extends Video {
                 other.engagement == engagement) &&
             (identical(other.isLive, isLive) || other.isLive == isLive) &&
             const DeepCollectionEquality()
-                .equals(other._musicData, _musicData) &&
+                .equals(other.musicData, _musicData) &&
             (identical(other.watchPage, watchPage) ||
                 other.watchPage == watchPage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      author,
-      channelId,
-      uploadDate,
-      uploadDateRaw,
-      publishDate,
-      description,
-      duration,
-      thumbnails,
-      const DeepCollectionEquality().hash(keywords),
-      engagement,
-      isLive,
-      const DeepCollectionEquality().hash(_musicData),
-      watchPage);
+  int get hashCode {
+    return Object.hash(
+        runtimeType,
+        id,
+        title,
+        author,
+        channelId,
+        uploadDate,
+        uploadDateRaw,
+        publishDate,
+        description,
+        duration,
+        thumbnails,
+        const DeepCollectionEquality().hash(keywords),
+        engagement,
+        isLive,
+        const DeepCollectionEquality().hash(_musicData),
+        watchPage);
+  }
 
   @override
   String toString() {
@@ -467,8 +719,6 @@ abstract mixin class _$VideoCopyWith<$Res> implements $VideoCopyWith<$Res> {
       List<MusicData> musicData,
       @internal WatchPage? watchPage});
 
-  @override
-  $VideoIdCopyWith<$Res> get id;
   @override
   $ChannelIdCopyWith<$Res> get channelId;
   @override
@@ -567,16 +817,6 @@ class __$VideoCopyWithImpl<$Res> implements _$VideoCopyWith<$Res> {
           : watchPage // ignore: cast_nullable_to_non_nullable
               as WatchPage?,
     ));
-  }
-
-  /// Create a copy of Video
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $VideoIdCopyWith<$Res> get id {
-    return $VideoIdCopyWith<$Res>(_self.id, (value) {
-      return _then(_self.copyWith(id: value));
-    });
   }
 
   /// Create a copy of Video

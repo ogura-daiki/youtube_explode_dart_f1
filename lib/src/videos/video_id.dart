@@ -6,7 +6,7 @@ part 'video_id.freezed.dart';
 part 'video_id.g.dart';
 
 /// Encapsulates a valid YouTube video ID.
-@freezed
+@Freezed(copyWith: false)
 abstract class VideoId with _$VideoId {
   static final _regMatchExp = RegExp(r'youtube\..+?/watch.*?v=(.*?)(?:&|/|$)');
   static final _shortMatchExp = RegExp(r'youtu\.be/(.*?)(?:\?|&|/|$)');

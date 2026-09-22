@@ -1,7 +1,6 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'channel_link.dart';
@@ -10,6 +9,7 @@ part of 'channel_link.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -36,20 +36,26 @@ mixin _$ChannelLink {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as ChannelLink;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is ChannelLink &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.icon, icon) || other.icon == icon));
+            (identical(other.title, _this.title) ||
+                other.title == _this.title) &&
+            (identical(other.url, _this.url) || other.url == _this.url) &&
+            (identical(other.icon, _this.icon) || other.icon == _this.icon));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, url, icon);
+  int get hashCode {
+    final _this = this as ChannelLink;
+    return Object.hash(runtimeType, _this.title, _this.url, _this.icon);
+  }
 
   @override
   String toString() {
-    return 'ChannelLink(title: $title, url: $url, icon: $icon)';
+    final _this = this as ChannelLink;
+    return 'ChannelLink(title: ${_this.title}, url: ${_this.url}, icon: ${_this.icon})';
   }
 }
 
@@ -83,20 +89,195 @@ class _$ChannelLinkCopyWithImpl<$Res> implements $ChannelLinkCopyWith<$Res> {
     Object? url = null,
     Object? icon = null,
   }) {
-    return _then(_self.copyWith(
-      title: null == title
+    return _then(ChannelLink(
+      null == title
           ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
+      null == url
           ? _self.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
-      icon: null == icon
+      null == icon
           ? _self.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as Uri,
     ));
+  }
+}
+
+/// Adds pattern-matching-related methods to [ChannelLink].
+extension ChannelLinkPatterns on ChannelLink {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ChannelLink value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelLink() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ChannelLink value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelLink():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ChannelLink value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelLink() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String title,
+            Uri url,
+            @Deprecated(
+                'As of at least 26-08-2023 YT no longer provides icons for links, so this URI is always empty')
+            Uri icon)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelLink() when $default != null:
+        return $default(_that.title, _that.url, _that.icon);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String title,
+            Uri url,
+            @Deprecated(
+                'As of at least 26-08-2023 YT no longer provides icons for links, so this URI is always empty')
+            Uri icon)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelLink():
+        return $default(_that.title, _that.url, _that.icon);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String title,
+            Uri url,
+            @Deprecated(
+                'As of at least 26-08-2023 YT no longer provides icons for links, so this URI is always empty')
+            Uri icon)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ChannelLink() when $default != null:
+        return $default(_that.title, _that.url, _that.icon);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -144,7 +325,9 @@ class _ChannelLink implements ChannelLink {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, url, icon);
+  int get hashCode {
+    return Object.hash(runtimeType, title, url, icon);
+  }
 
   @override
   String toString() {

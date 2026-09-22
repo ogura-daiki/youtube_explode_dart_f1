@@ -1,7 +1,6 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'engagement.dart';
@@ -10,6 +9,7 @@ part of 'engagement.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -33,24 +33,29 @@ mixin _$Engagement {
 
   @override
   bool operator ==(Object other) {
+    final _this = this as Engagement;
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Engagement &&
-            (identical(other.viewCount, viewCount) ||
-                other.viewCount == viewCount) &&
-            (identical(other.likeCount, likeCount) ||
-                other.likeCount == likeCount) &&
-            (identical(other.dislikeCount, dislikeCount) ||
-                other.dislikeCount == dislikeCount));
+            (identical(other.viewCount, _this.viewCount) ||
+                other.viewCount == _this.viewCount) &&
+            (identical(other.likeCount, _this.likeCount) ||
+                other.likeCount == _this.likeCount) &&
+            (identical(other.dislikeCount, _this.dislikeCount) ||
+                other.dislikeCount == _this.dislikeCount));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, viewCount, likeCount, dislikeCount);
+  int get hashCode {
+    final _this = this as Engagement;
+    return Object.hash(
+        runtimeType, _this.viewCount, _this.likeCount, _this.dislikeCount);
+  }
 
   @override
   String toString() {
-    return 'Engagement(viewCount: $viewCount, likeCount: $likeCount, dislikeCount: $dislikeCount)';
+    final _this = this as Engagement;
+    return 'Engagement(viewCount: ${_this.viewCount}, likeCount: ${_this.likeCount}, dislikeCount: ${_this.dislikeCount})';
   }
 }
 
@@ -79,20 +84,179 @@ class _$EngagementCopyWithImpl<$Res> implements $EngagementCopyWith<$Res> {
     Object? likeCount = freezed,
     Object? dislikeCount = freezed,
   }) {
-    return _then(_self.copyWith(
-      viewCount: null == viewCount
+    return _then(Engagement(
+      null == viewCount
           ? _self.viewCount
           : viewCount // ignore: cast_nullable_to_non_nullable
               as int,
-      likeCount: freezed == likeCount
+      freezed == likeCount
           ? _self.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      dislikeCount: freezed == dislikeCount
+      freezed == dislikeCount
           ? _self.dislikeCount
           : dislikeCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
+  }
+}
+
+/// Adds pattern-matching-related methods to [Engagement].
+extension EngagementPatterns on Engagement {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Engagement value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Engagement() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Engagement value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Engagement():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Engagement value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Engagement() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(int viewCount, int? likeCount, int? dislikeCount)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Engagement() when $default != null:
+        return $default(_that.viewCount, _that.likeCount, _that.dislikeCount);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(int viewCount, int? likeCount, int? dislikeCount) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Engagement():
+        return $default(_that.viewCount, _that.likeCount, _that.dislikeCount);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(int viewCount, int? likeCount, int? dislikeCount)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Engagement() when $default != null:
+        return $default(_that.viewCount, _that.likeCount, _that.dislikeCount);
+      case _:
+        return null;
+    }
   }
 }
 
@@ -136,8 +300,9 @@ class _Engagement extends Engagement {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, viewCount, likeCount, dislikeCount);
+  int get hashCode {
+    return Object.hash(runtimeType, viewCount, likeCount, dislikeCount);
+  }
 
   @override
   String toString() {
